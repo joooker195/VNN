@@ -1,5 +1,7 @@
 package model;
 
+import initialization.IInitWeight;
+import initialization.InitRandom;
 import logs.Log;
 
 import java.io.IOException;
@@ -134,15 +136,15 @@ public class ModelNetwork {
         return neurons;
     }
 
-    private ArrayList<Double> coeff(int count) throws IOException {
+    private ArrayList<Double> coeff(int count) {
 
         IInitWeight init;
         if (Log.isDebugEnable) {
             Log.debug("ModelNetwork#coeff(int count)", "count = " + count, true);
         }
         // init = new InitWeightAnnealing(1, 1E-7);
-        //  init = new InitWeightRandom();
-        init = new InitWeightGenetic();
+         init = new InitRandom();
+      //  init = new InitWeightGenetic();
 
         ArrayList<Double> coefficients = init.initWeight(count);
 

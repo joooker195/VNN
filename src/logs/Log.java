@@ -48,14 +48,6 @@ public class Log
     }
 
 
-    public void setDebugEnable(boolean isDebugEnable) {
-        this.isDebugEnable = isDebugEnable;
-    }
-
-    public boolean isDebugEnable() {
-        return isDebugEnable;
-    }
-
     public static void debug(String from, String message, boolean isCons) {
         if(isCons)
         {
