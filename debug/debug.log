@@ -1,0 +1,17 @@
+46:46 ModelNetwork#coeff(int count): count = 15
+46:46 FitnessFunction#FitnessFunction(String filename): run
+46:54 FitnessFunction#checkPath(int[] path): matrix = 0.47398644837336856 result = 0
+matrix = 0.588608204650044 result = 0
+matrix = 0.9106879090958465 result = 0
+matrix = 0.0 result = 0
+matrix = 0.7004492458016298 result = 0
+matrix = 1.0275135765299983 result = 1
+matrix = 0.6218794381928052 result = 1
+matrix = 1.1449412462211674 result = 2
+matrix = -1.258216615571421 result = 0
+matrix = 0.0 result = 0
+matrix = -0.9979997042249621 result = 0
+matrix = -2.7249210739348038 result = -2
+matrix = -0.12284496896085237 result = -2
+matrix = 0.0 result = -2
+
