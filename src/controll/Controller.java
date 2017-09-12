@@ -1,7 +1,9 @@
 package controll;
 
-import model.ModelNetwork;
-import model.ModelNeuron;
+import model.*;
+import mainfunction.*;
+
+import xml.DataExchange;
 import xml.SaveNetwork;
 
 import java.io.IOException;
@@ -19,12 +21,12 @@ public class Controller
     public static void trainingNetwork() throws Exception {
         ModelNetwork model = new ModelNetwork();
         Controller.neurons = model.createNetwork();
-       // neurons = NetworkFunctional.trainingNetworkThreeRoot(data, neurons);
+        neurons = NetworkFunctional.trainingNetwork(data, neurons);
     }
 
     public static void testingNetwork() throws Exception
     {
-        NetworkFunctional.testingNetworkThreeRoot(data, neurons);
+        NetworkFunctional.testingNetwork(data, neurons);
     }
 
     public static void getData(String file) throws IOException {

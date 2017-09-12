@@ -17,7 +17,7 @@ public class Log
     static BufferedWriter out;
     static StringBuffer  mes = new StringBuffer();
     BufferedReader reader = null;
-    static String fileName = "D:\\Ксюша\\Универ\\VolterraNeuralNet\\debug\\debug.log";
+    static String fileName = "D:\\Ксюша\\Универ\\TheDawnOfNewEra\\VNN\\debug\\debug.log";
 
     public void clear()
     {

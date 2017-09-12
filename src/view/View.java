@@ -12,33 +12,32 @@ public class View
 {
    // private static Scanner in  = new Scanner(System.in);
     public static void setvisibleView() throws Exception {
-
+        String end = "no";
         System.out.println("Welcome!");
-        System.out.println("1-training");
-        System.out.println("2-tesiting");
-        if(inputCommand().equals("1"))
-        {
-            System.out.println("1-brent");
-            System.out.println("2-wti");
-            if(inputCommand().equals("1")) {
-                MainClass.runTraining("dataBrent.xls");
+
+        while(!end.equals("yes")) {
+            System.out.println("1-training");
+            System.out.println("2-tesiting");
+            if (inputCommand().equals("1")) {
+                System.out.println("1-brent");
+                System.out.println("2-wti");
+                if (inputCommand().equals("1")) {
+                    MainClass.runTraining("dataBrent.xls");
+                } else if (inputCommand().equals("2")) {
+                    MainClass.runTraining("dataWTI.xls");
+                }
+            } else if (inputCommand().equals("2")) {
+                System.out.println("1-brent");
+                System.out.println("2-wti");
+                if (inputCommand().equals("1")) {
+                    MainClass.runTesting("dataBrent.xls");
+                } else if (inputCommand().equals("2")) {
+                    MainClass.runTesting("dataWTI.xls");
+                }
             }
-            else if(inputCommand().equals("2"))
-            {
-                MainClass.runTraining("dataWTI.xls");
-            }
-        }
-        else if(inputCommand().equals("2"))
-        {
-            System.out.println("1-brent");
-            System.out.println("2-wti");
-            if(inputCommand().equals("1")) {
-                MainClass.runTesting("dataBrent.xls");
-            }
-            else if(inputCommand().equals("2"))
-            {
-                MainClass.runTesting("dataWTI.xls");
-            }
+
+            System.out.println("End?");
+            end = inputCommand();
         }
 
     }

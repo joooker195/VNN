@@ -1,11 +1,9 @@
 package mainfunction;
 
-import controll.Calculation;
-import controll.DataExchange;
-import controll.MainFunctional;
 import logs.Log;
 import math.Calculate;
 import model.ModelNeuron;
+import xml.DataExchange;
 
 import java.util.ArrayList;
 
@@ -19,7 +17,7 @@ public class NetworkFunctional
     private static double E = 0.001;
     private static boolean flag;
 
-    public static ModelNeuron[] trainingNetworkThreeRoot(ArrayList<Double> data, ModelNeuron[] neurons) throws Exception {
+    public static ModelNeuron[] trainingNetwork(ArrayList<Double> data, ModelNeuron[] neurons) throws Exception {
         try {
             DataExchange.datain = new ArrayList<Double>();
             DataExchange.dataout = new ArrayList<Double>();
@@ -52,18 +50,18 @@ public class NetworkFunctional
                         continue;
                     }
                     returnSignal = TrainingTestingFunction.receiveSignal(neurons, x);
-                    flag = MainFunctional.condition(returnSignal, sample);
+                    flag = TrainingTestingFunction.condition(returnSignal, sample);
                     if(flag)
                     {
                         break;
                     }
-                    returnSignal = Calculation.funActivator(returnSignal);
+                    returnSignal = Calculate.funActivator(returnSignal);
                     neurons = TrainingTestingFunction.returnSignal(neurons, x, returnSignal, sample);
                     DataExchange.datain.add(sample);
                     DataExchange.dataout.add(returnSignal);
                 }
             }
-            err = Calculation.error(DataExchange.datain, DataExchange.dataout);
+            err = Calculate.error(DataExchange.datain, DataExchange.dataout);
             System.out.println(err);
         } catch (RuntimeException e) {
             Log.debug("NetworkFunctional#trainingNetworkThreeRoot(ArrayList<Double> data, ModelNeuron[] neurons)",
@@ -73,7 +71,7 @@ public class NetworkFunctional
 
     }
 
-    public static void testingNetworkThreeRoot(ArrayList<Double> data, ModelNeuron[] neurons) {
+    public static void testingNetwork(ArrayList<Double> data, ModelNeuron[] neurons) {
         try {
             DataExchange.datain = new ArrayList<Double>();
             DataExchange.dataout = new ArrayList<Double>();
@@ -100,14 +98,14 @@ public class NetworkFunctional
                             e.toString(), false);
                     break;
                 }
-                returnSignal = MainFunctional.receiveSignalThreeRoot(neurons, x);
+                returnSignal = TrainingTestingFunction.receiveSignal(neurons, x);
                 DataExchange.datain.add(sample);
                 DataExchange.dataout.add(returnSignal);
             }
-            double av = Calculation.average(DataExchange.dataout);
-            SCO = Calculation.sd(DataExchange.dataout, av);
+            double av = Calculate.average(DataExchange.dataout);
+            SCO = Calculate.sd(DataExchange.dataout, av);
             System.out.println("СКО: " + SCO);
-            err = Calculation.error(DataExchange.datain, DataExchange.dataout);
+            err = Calculate.error(DataExchange.datain, DataExchange.dataout);
             System.out.println("Ошибка прогнозирования: " + err);
         }
         catch (RuntimeException e)

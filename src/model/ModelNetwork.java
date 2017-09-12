@@ -55,6 +55,7 @@ public class ModelNetwork {
             neurons = init(neurons);
             neurons = connection(neurons);
         } catch (Exception e) {
+            System.out.println("Error");
             Log.debug("ModelNeuron#createNetwork(int countRoot, int countLayer)", "Exeption: " + e, e.getStackTrace());
         }
         return neurons;
@@ -125,13 +126,13 @@ public class ModelNetwork {
             neurons[j].setParent(neurons[i]);
         }
 
-        if (Log.isDebugEnable) {
+        /*if (Log.isDebugEnable) {
             String s = "";
             for (int i = 0; i < neurons.length; i++) {
-                s = s + neurons.toString();
+                s = s + neurons[i].toString();
             }
-            Log.debug("ModelNetwork#createNetwork(int countRoot, int countLayer)", s, false);
-        }
+            Log.debug("ModelNetwork#connection(ModelNeuron[] neurons)", s, false);
+        }*/
 
         return neurons;
     }

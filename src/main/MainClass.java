@@ -21,6 +21,7 @@ public class MainClass
     {
         Controller.getData(file);
         Controller.testingNetwork();
+        Controller.setData("file.xlsx");
     }
 
     public static void main(String[] args) throws Exception
