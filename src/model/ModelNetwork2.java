@@ -108,7 +108,7 @@ public class ModelNetwork2
 
         if (Log.isDebugEnable)
         {
-            Log.debug("ModelNetwork#connection(ModelNeuron[] neurons)", s, true);
+            Log.debug("ModelNetwork#connection(ModelNeuron[] neurons)", s, false);
         }
 
     }
@@ -128,14 +128,7 @@ public class ModelNetwork2
             neurons[i].setHiddenRight(neurons[j]);
             neurons[j].setParent(neurons[i]);
         }
-
-        /*if (Log.isDebugEnable) {
-            String s = "";
-            for (int i = 0; i < neurons.length; i++) {
-                s = s + neurons[i].toString();
-            }
-            Log.debug("ModelNetwork#connection(ModelNeuron[] neurons)", s, false);
-        }*/
+        
 
         return neurons;
     }

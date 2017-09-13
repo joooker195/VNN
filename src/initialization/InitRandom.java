@@ -21,10 +21,10 @@ public class InitRandom implements IInitWeight
             s = s+a+"\n";
             weights.add(a);
         }
-        if(Log.isDebugEnable)
+        /*if(Log.isDebugEnable)
         {
             Log.debug("InitWeightRandom#initWeight(int count)",s, false);
-        }
+        }*/
         return weights;
     }
 
