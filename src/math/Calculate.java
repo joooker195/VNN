@@ -83,7 +83,7 @@ public class Calculate
         for(int i=0; i< data.size(); i++) {
             y += Math.pow(data.get(i) - average, 2);
         }
-        return Math.sqrt(y/(data.size()-1));
+        return Math.sqrt(y/(data.size()));
     }
 
     public static double err = 1;

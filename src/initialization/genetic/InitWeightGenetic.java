@@ -21,12 +21,12 @@ public class InitWeightGenetic implements IInitWeight {
         ArrayList<Double> result;
         FitnessFunction ff = new FitnessFunction("matrix.txt");
         GeneticEngine ge = new GeneticEngine(ff);
-        ge.setIndividualCount(100);
-        ge.setGenerationCount(10000);
+        ge.setIndividualCount(5);
+        ge.setGenerationCount(10);
         ge.setSelectionType(GeneticEngine.SelectionType.TOURNEY);
         ge.setCrossingType(GeneticEngine.CrossingType.ELEMENTWISE_RECOMBINATION);
         ge.setUseMutation(true);
-        ge.setMutationPercent(0.02d);
+        ge.setMutationPercent(0.01d);
 
         long time = System.currentTimeMillis();
         long[] better = ge.run();

@@ -14,7 +14,7 @@ public class NetworkFunctional
 {
     public static double SCO = 0;
     public static double err = 1;
-    private static double E = 0.001;
+    private static double E = 0.0001;
     private static boolean flag;
 
     public static ArrayList trainingNetwork(ArrayList<Double> data, ArrayList neurons) throws Exception {
@@ -22,8 +22,7 @@ public class NetworkFunctional
             DataExchange.datain = new ArrayList<Double>();
             DataExchange.dataout = new ArrayList<Double>();
             TrainingTestingFunction.e = 1;
-            if (data.size() == 0)
-            {
+            if (data.size() == 0) {
                 // "Данные не загружены.";
                 throw new RuntimeException("Данные не загруженны");
             }
@@ -31,6 +30,7 @@ public class NetworkFunctional
             double returnSignal;
             double sample;
             int numberSamples = 0;
+
             while (TrainingTestingFunction.e > E) {
                 TrainingTestingFunction.e = 0;
                 for (; numberSamples < data.size(); ) {
@@ -51,8 +51,7 @@ public class NetworkFunctional
                     }
                     returnSignal = TrainingTestingFunction.receiveSignal(neurons, x);
                     flag = TrainingTestingFunction.condition(returnSignal, sample);
-                    if(flag)
-                    {
+                    if (flag) {
                         break;
                     }
                     returnSignal = Calculate.funActivator(returnSignal);
@@ -62,6 +61,7 @@ public class NetworkFunctional
                 }
             }
             err = Calculate.error(DataExchange.datain, DataExchange.dataout);
+
             System.out.println(err);
         } catch (RuntimeException e) {
             Log.debug("NetworkFunctional#trainingNetworkThreeRoot(ArrayList<Double> data, ModelNeuron[] neurons)",
@@ -103,7 +103,7 @@ public class NetworkFunctional
                 DataExchange.dataout.add(returnSignal);
             }
             double av = Calculate.average(DataExchange.dataout);
-            SCO = Calculate.sd(DataExchange.dataout, av);
+            SCO = Calculate.sd(DataExchange.datain, av);
             System.out.println("СКО: " + SCO);
             err = Calculate.error(DataExchange.datain, DataExchange.dataout);
             System.out.println("Ошибка прогнозирования: " + err);
