@@ -156,7 +156,7 @@ public class ModelNetwork
                 }
                 case 2:
                 {
-                    init = new InitWeightAnnealing(1, 1E-6);
+                    init = new InitWeightAnnealing(1, 1E-7);
                     break;
                 }
                 case 3:

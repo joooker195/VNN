@@ -68,10 +68,12 @@ public class InitWeightAnnealing implements IInitWeight
 
         for (int i=0; i< states.size(); i++)
         {
-          //  double normalState = Calculation.normalize(states.get(i));
-            double data = cities.getStateX((int)Math.floor(states.get(i)));
-            states.remove(i);
-            states.add(i, data);
+            double data = states.get(i);
+            if(states.get(i)>0) {
+                data = Calculate.normalize(states.get(i)*10);
+            }
+          //  double data = cities.getStateX((int)Math.floor(states.get(i)));
+            states.set(i, data);
         }
 
         if(Log.isDebugEnable)
