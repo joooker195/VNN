@@ -1,5 +1,6 @@
 package initialization.genetic;
 
+import initialization.InitRandom;
 import math.Calculate;
 import logs.Log;
 
@@ -194,7 +195,8 @@ public class FitnessFunction implements IFitnessFunction{
 
         for(int i=0;i<n-1;i++){
             for(int j=i+1;j<n;j++){
-                matrix[i][j] = Calculate.getRandom();
+             //   matrix[i][j] = Calculate.getRandom();
+                matrix[i][j] = InitRandom.initGaussianRandomWeight();
                 matrix[j][i] = matrix[i][j];
             }
         }

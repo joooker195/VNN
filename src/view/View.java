@@ -80,6 +80,14 @@ public class View
         return in.next();
     }
 
+    public static String chooseInit()
+    {
+        System.out.println("1-random");
+        System.out.println("2-annelign");
+        System.out.println("3-genetic");
+        return inputCommand();
+    }
+
     public static void printSomeInfo(String info)
     {
         System.out.println(info);

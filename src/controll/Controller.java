@@ -4,7 +4,6 @@ import model.*;
 import mainfunction.*;
 
 import xml.DataExchange;
-import xml.SaveNetwork;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ public class Controller
 
 
     public static void trainingNetwork() throws Exception {
-        ModelNetwork2 model = new ModelNetwork2();
+        ModelNetwork model = new ModelNetwork();
         Controller.neurons = model.createNetwork();
         neurons = NetworkFunctional.trainingNetwork(data, neurons);
     }

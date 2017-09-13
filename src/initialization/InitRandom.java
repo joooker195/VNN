@@ -3,8 +3,12 @@ package initialization;
 import logs.Log;
 import math.Calculate;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
+import java.util.Scanner;
 
 /**
  * Created by Ксю on 12.09.2017.
@@ -12,19 +16,31 @@ import java.util.ArrayList;
 public class InitRandom implements IInitWeight
 {
     ArrayList<Double> weights = new ArrayList<Double>();
+    Random r = new Random();
     @Override
     public ArrayList<Double> initWeight(int count) {
 
-        String s = "Weights \n";
-        for(int i=0; i<count; i++) {
+       /* for(int i=0; i<count; i++) {
             double a = initGaussianRandomWeight();
-            s = s+a+"\n";
+
             weights.add(a);
-        }
-        /*if(Log.isDebugEnable)
-        {
-            Log.debug("InitWeightRandom#initWeight(int count)",s, false);
         }*/
+        Scanner in = null;
+        try {
+            in = new Scanner(new FileReader("ffout.txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        ArrayList<Double> ran = new ArrayList<Double>();
+        int num = in.nextInt();
+        for(int i=0; i<num; i++)
+        {
+            ran.add(Double.valueOf(in.next()));
+        }
+        for(int i=0; i<count; i++)
+        {
+            weights.add(ran.get(r.nextInt(150)));
+        }
         return weights;
     }
 

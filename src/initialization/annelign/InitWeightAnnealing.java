@@ -5,8 +5,11 @@ import initialization.IInitWeight;
 import initialization.InitRandom;
 import logs.Log;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  * Created by Ксю on 09.03.2017.
@@ -29,16 +32,35 @@ public class InitWeightAnnealing implements IInitWeight
     }
 
 
+    private ArrayList<Double> getRand()
+    {
+        Scanner in = null;
+        try {
+            in = new Scanner(new FileReader("ffout.txt"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        ArrayList<Double> ran = new ArrayList<Double>();
+        int num = in.nextInt();
+        for(int i=0; i<num; i++)
+        {
+            ran.add(Double.valueOf(in.next()));
+        }
+        return ran;
+    }
+
     @Override
     public ArrayList<Double> initWeight(int count) {
 
         ArrayList<Double> x = new ArrayList<Double>();
         ArrayList<Double> y = new ArrayList<Double>();
-        ArrayList<Double> result = new ArrayList<Double>();
+        ArrayList<Double> rand = getRand();
         for(int i=0; i<count; i++)
         {
-            x.add(InitRandom.initGaussianRandomWeight());
-            y.add(InitRandom.initGaussianRandomWeight());
+            /*x.add(InitRandom.initGaussianRandomWeight());
+            y.add(InitRandom.initGaussianRandomWeight());*/
+            x.add(rand.get(r.nextInt(150)));
+            y.add(rand.get(r.nextInt(150)));
         }
         cities = new Cities(x, y);
         this.count = count;

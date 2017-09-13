@@ -2,7 +2,7 @@ package main;
 
 import controll.Controller;
 import logs.Log;
-import model.ModelNetwork2;
+import model.ModelNetwork;
 import view.View;
 
 /**
@@ -27,7 +27,7 @@ public class MainClass
 
     public static void test()
     {
-        ModelNetwork2 mn = new ModelNetwork2();
+        ModelNetwork mn = new ModelNetwork();
         mn.createNetwork();
         Log.debug("MainClass#test()", "start", true);
     }
