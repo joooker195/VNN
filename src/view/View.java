@@ -35,6 +35,10 @@ public class View
                     MainClass.runTesting("dataWTI.xls");
                 }
             }
+            else if(inputCommand().equals("3"))
+            {
+                MainClass.test();
+            }
 
             System.out.println("End?");
             end = inputCommand();

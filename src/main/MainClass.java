@@ -2,6 +2,7 @@ package main;
 
 import controll.Controller;
 import logs.Log;
+import model.ModelNetwork2;
 import view.View;
 
 /**
@@ -22,6 +23,13 @@ public class MainClass
         Controller.getData(file);
         Controller.testingNetwork();
         Controller.setData("file.xlsx");
+    }
+
+    public static void test()
+    {
+        ModelNetwork2 mn = new ModelNetwork2();
+        mn.createNetwork();
+        Log.debug("MainClass#test()", "start", true);
     }
 
     public static void main(String[] args) throws Exception

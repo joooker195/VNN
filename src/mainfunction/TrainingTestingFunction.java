@@ -62,7 +62,7 @@ public class TrainingTestingFunction {
         int i = 1;
         for(; i<layerTwo; i++)
         {
-            network[i].setWeight(network[i].getWeight()-m*deltaFirhs);
+            network[i].setWeight(network[i].getWeight()-m*deltaSecond);
         }
         for(; i<layerTwo; i++)
         {
