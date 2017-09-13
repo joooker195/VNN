@@ -128,7 +128,7 @@ public class ModelNetwork2
             neurons[i].setHiddenRight(neurons[j]);
             neurons[j].setParent(neurons[i]);
         }
-        
+
 
         return neurons;
     }

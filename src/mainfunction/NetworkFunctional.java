@@ -17,7 +17,7 @@ public class NetworkFunctional
     private static double E = 0.001;
     private static boolean flag;
 
-    public static ModelNeuron[] trainingNetwork(ArrayList<Double> data, ModelNeuron[] neurons) throws Exception {
+    public static ModelNeuron[] trainingNetwork(ArrayList<Double> data, ArrayList neurons) throws Exception {
         try {
             DataExchange.datain = new ArrayList<Double>();
             DataExchange.dataout = new ArrayList<Double>();

@@ -14,12 +14,12 @@ import java.util.ArrayList;
  */
 public class Controller
 {
-    private static ModelNeuron[] neurons;
+    private static ArrayList neurons;
     private static ArrayList<Double> data = new ArrayList<Double>();
 
 
     public static void trainingNetwork() throws Exception {
-        ModelNetwork model = new ModelNetwork();
+        ModelNetwork2 model = new ModelNetwork2();
         Controller.neurons = model.createNetwork();
         neurons = NetworkFunctional.trainingNetwork(data, neurons);
     }

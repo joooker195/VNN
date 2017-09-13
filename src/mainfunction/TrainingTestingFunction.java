@@ -2,6 +2,8 @@ package mainfunction;
 
 import model.ModelNeuron;
 
+import java.util.ArrayList;
+
 /**
  * Created by Ксю on 12.09.2017.
  */
@@ -14,14 +16,14 @@ public class TrainingTestingFunction {
         TrainingTestingFunction.m = m;
     }
 
-    public static double receiveSignal(ModelNeuron[] neurons, double[] x) {
-        int countRoot = 3;
+    public static double receiveSignal(ArrayList neurons, double[] x) {
+     /*   int countRoot = 3;
         //первый промежуточный слой
         int layerOne = 1;
         int layerTwo = layerOne * countRoot + 1;
         int layerThree = layerTwo * countRoot + 1;
 
-        double y = 0;
+     //   double y = 0;
 
         for (int one = 0; one < countRoot; one++) {
             y = y + x[2] * neurons[layerThree].getWeight();
@@ -40,15 +42,35 @@ public class TrainingTestingFunction {
                     layerThree++;
                 }
             }
+        }*/
+
+        double y = 0;
+        int count = x.length;
+        ModelNeuron[] firstLayer = (ModelNeuron[]) neurons.get(1);
+        ModelNeuron[][] secondLayer = (ModelNeuron[][]) neurons.get(2);
+        ModelNeuron[][][] thirdLayer = (ModelNeuron[][][]) neurons.get(3);
+
+        for(int i=0; i<count; i++)
+        {
+            y+=x[count-i]*firstLayer[i].getWeight();
+            for(int j=0; j<count; j++)
+            {
+                y+=x[count-j]*secondLayer[i][j].getWeight();
+                for(int k=0; k<count; k++)
+                {
+                    y+=x[count-k]*thirdLayer[i][j][k].getWeight();
+                }
+            }
         }
+
         return y;
     }
 
 
     //корректировака весов
-    public static ModelNeuron[] returnSignal(ModelNeuron[] network, double[] x,  double y, double d)
+    public static ArrayList returnSignal(ArrayList network, double[] x,  double y, double d)
     {
-        int countRoot = 3;
+       /* int countRoot = 3;
         //первый промежуточный слой
         int layerOne = 1;
         int layerTwo = layerOne * countRoot + 1;
@@ -67,7 +89,37 @@ public class TrainingTestingFunction {
         for(; i<layerTwo; i++)
         {
             network[i].setWeight(network[i].getWeight()-m*deltaThird);
+        }*/
+
+
+        int count = x.length;
+        ModelNeuron[] firstLayer = (ModelNeuron[]) network.get(1);
+        ModelNeuron[][] secondLayer = (ModelNeuron[][]) network.get(2);
+        ModelNeuron[][][] thirdLayer = (ModelNeuron[][][]) network.get(3);
+
+        double y1;
+        double y2;
+        double y3;
+
+        for(int i=0; i<count; i++)
+        {
+            y1 = x[count-i]*(y-d);
+            firstLayer[i].setWeight(firstLayer[i].getWeight()-m*y1);
+            for(int j=0; j<count; j++)
+            {
+                y2 = x[count-j]*y1;
+                secondLayer[i][j].setWeight(secondLayer[i][j].getWeight()-m*y2);
+                for(int k=0; k<count; k++)
+                {
+                    y3 = x[count-k]*y2;
+                    thirdLayer[i][j][k].setWeight(thirdLayer[i][j][k].getWeight()-m*y3);
+                }
+            }
         }
+
+        network.set(1,firstLayer);
+        network.set(2,secondLayer);
+        network.set(3,thirdLayer);
 
         return network;
     }
