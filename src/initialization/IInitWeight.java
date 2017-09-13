@@ -8,5 +8,5 @@ import java.util.ArrayList;
  */
 public interface IInitWeight
 {
-    public ArrayList<Double> initWeight(int count);
+    public ArrayList<Double> initWeight(int count) throws IOException;
 }

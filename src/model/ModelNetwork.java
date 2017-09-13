@@ -147,7 +147,12 @@ public class ModelNetwork {
          init = new InitRandom();
       //  init = new InitWeightGenetic();
 
-        ArrayList<Double> coefficients = init.initWeight(count);
+        ArrayList<Double> coefficients = null;
+        try {
+            coefficients = init.initWeight(count);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         return coefficients;
 

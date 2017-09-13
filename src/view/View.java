@@ -50,7 +50,7 @@ public class View
                         case 1:
                         {
                             System.out.println("Start testing with Brent");
-                            MainClass.runTesting("dataBrent.xls");
+                            MainClass.runTesting("dataTestBrent.xls");
                             break;
                         }
                         /*case 2:

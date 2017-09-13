@@ -2,8 +2,11 @@ package model;
 
 import initialization.IInitWeight;
 import initialization.InitRandom;
+import initialization.annelign.InitWeightAnnealing;
+import initialization.genetic.InitWeightGenetic;
 import logs.Log;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -135,17 +138,26 @@ public class ModelNetwork2
 
     private ArrayList<Double> coeff(int count) {
 
-        IInitWeight init;
-        if (Log.isDebugEnable) {
-            Log.debug("ModelNetwork#coeff(int count)", "count = " + count, true);
-        }
-        // init = new InitWeightAnnealing(1, 1E-7);
-        init = new InitRandom();
-        //  init = new InitWeightGenetic();
+        ArrayList<Double> coefficients = new ArrayList<Double>();
+        try {
 
-        ArrayList<Double> coefficients = init.initWeight(count);
+            IInitWeight init;
+            if (Log.isDebugEnable) {
+                Log.debug("ModelNetwork#coeff(int count)", "count = " + count, true);
+            }
+             init = new InitWeightAnnealing(1, 1E-7);
+           // init = new InitRandom();
+          //    init = new InitWeightGenetic();
+
+            coefficients = init.initWeight(count);
+        }
+        catch (IOException e)
+        {
+            Log.debug("ModelNetwork2#coeff(int count)", e.toString(), e.getStackTrace());
+        }
 
         return coefficients;
+
 
     }
 
