@@ -17,7 +17,7 @@ public class NetworkFunctional
     private static double E = 0.001;
     private static boolean flag;
 
-    public static ModelNeuron[] trainingNetwork(ArrayList<Double> data, ArrayList neurons) throws Exception {
+    public static ArrayList trainingNetwork(ArrayList<Double> data, ArrayList neurons) throws Exception {
         try {
             DataExchange.datain = new ArrayList<Double>();
             DataExchange.dataout = new ArrayList<Double>();
@@ -27,7 +27,7 @@ public class NetworkFunctional
                 // "Данные не загружены.";
                 throw new RuntimeException("Данные не загруженны");
             }
-            double[] x = new double[4];
+            double[] x = new double[3];
             double returnSignal;
             double sample;
             int numberSamples = 0;
@@ -71,7 +71,7 @@ public class NetworkFunctional
 
     }
 
-    public static void testingNetwork(ArrayList<Double> data, ModelNeuron[] neurons) {
+    public static void testingNetwork(ArrayList<Double> data, ArrayList neurons) {
         try {
             DataExchange.datain = new ArrayList<Double>();
             DataExchange.dataout = new ArrayList<Double>();
@@ -79,7 +79,7 @@ public class NetworkFunctional
                 // "Данные не загружены.";
                 throw new RuntimeException("Данные не загруженны");
             }
-            double[] x = new double[4];
+            double[] x = new double[3];
             double returnSignal;
             double sample;
             int numberSamples = 0;

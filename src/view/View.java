@@ -31,30 +31,35 @@ public class View
                         {
                             System.out.println("Start training with Brent");
                             MainClass.runTraining("dataBrent.xls");
+                            break;
                         }
-                        case 2:
+                        /*case 2:
                         {
                             System.out.println("Start training with WTI");
                             MainClass.runTraining("dataWTI.xls");
-                        }
+                        }*/
                     }
-
+                    break;
                 }
                 case 2:
                 {
+                    System.out.println("1-brent");
+                    System.out.println("2-wti");
                     switch ((Integer.parseInt(inputCommand())))
                     {
                         case 1:
                         {
                             System.out.println("Start testing with Brent");
-                            MainClass.runTraining("dataBrent.xls");
+                            MainClass.runTesting("dataBrent.xls");
+                            break;
                         }
-                        case 2:
+                        /*case 2:
                         {
                             System.out.println("Start testing with WTI");
-                            MainClass.runTraining("dataWTI.xls");
-                        }
+                            MainClass.runTesting("dataWTI.xls");
+                        }*/
                     }
+                    break;
 
                 }
                 case 3:

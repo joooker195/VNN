@@ -52,13 +52,13 @@ public class TrainingTestingFunction {
 
         for(int i=0; i<count; i++)
         {
-            y+=x[count-i]*firstLayer[i].getWeight();
+            y+=x[count-i-1]*firstLayer[i].getWeight();
             for(int j=0; j<count; j++)
             {
-                y+=x[count-j]*secondLayer[i][j].getWeight();
+                y+=x[count-j-1]*secondLayer[i][j].getWeight();
                 for(int k=0; k<count; k++)
                 {
-                    y+=x[count-k]*thirdLayer[i][j][k].getWeight();
+                    y+=x[count-k-1]*thirdLayer[i][j][k].getWeight();
                 }
             }
         }
@@ -103,15 +103,15 @@ public class TrainingTestingFunction {
 
         for(int i=0; i<count; i++)
         {
-            y1 = x[count-i]*(y-d);
+            y1 = x[count-i-1]*(y-d);
             firstLayer[i].setWeight(firstLayer[i].getWeight()-m*y1);
             for(int j=0; j<count; j++)
             {
-                y2 = x[count-j]*y1;
+                y2 = x[count-j-1]*y1;
                 secondLayer[i][j].setWeight(secondLayer[i][j].getWeight()-m*y2);
                 for(int k=0; k<count; k++)
                 {
-                    y3 = x[count-k]*y2;
+                    y3 = x[count-k-1]*y2;
                     thirdLayer[i][j][k].setWeight(thirdLayer[i][j][k].getWeight()-m*y3);
                 }
             }
