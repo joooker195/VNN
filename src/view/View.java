@@ -15,33 +15,57 @@ public class View
         String end = "no";
         System.out.println("Welcome!");
 
-        while(!end.equals("yes")) {
+        String isEnd = "no";
+        while (!isEnd.equals("yes")) {
             System.out.println("1-training");
             System.out.println("2-tesiting");
-            if (inputCommand().equals("1")) {
-                System.out.println("1-brent");
-                System.out.println("2-wti");
-                if (inputCommand().equals("1")) {
-                    MainClass.runTraining("dataBrent.xls");
-                } else if (inputCommand().equals("2")) {
-                    MainClass.runTraining("dataWTI.xls");
-                }
-            } else if (inputCommand().equals("2")) {
-                System.out.println("1-brent");
-                System.out.println("2-wti");
-                if (inputCommand().equals("1")) {
-                    MainClass.runTesting("dataBrent.xls");
-                } else if (inputCommand().equals("2")) {
-                    MainClass.runTesting("dataWTI.xls");
-                }
-            }
-            else if(inputCommand().equals("3"))
+            System.out.println("3-test new model");
+            switch (Integer.parseInt(inputCommand()))
             {
-                MainClass.test();
+                case 1: {
+                    System.out.println("1-brent");
+                    System.out.println("2-wti");
+                    switch ((Integer.parseInt(inputCommand())))
+                    {
+                        case 1:
+                        {
+                            System.out.println("Start training with Brent");
+                            MainClass.runTraining("dataBrent.xls");
+                        }
+                        case 2:
+                        {
+                            System.out.println("Start training with WTI");
+                            MainClass.runTraining("dataWTI.xls");
+                        }
+                    }
+
+                }
+                case 2:
+                {
+                    switch ((Integer.parseInt(inputCommand())))
+                    {
+                        case 1:
+                        {
+                            System.out.println("Start testing with Brent");
+                            MainClass.runTraining("dataBrent.xls");
+                        }
+                        case 2:
+                        {
+                            System.out.println("Start testing with WTI");
+                            MainClass.runTraining("dataWTI.xls");
+                        }
+                    }
+
+                }
+                case 3:
+                {
+                    System.out.println("run test");
+                    MainClass.test();
+                }
             }
 
-            System.out.println("End?");
-            end = inputCommand();
+            System.out.println("is End?");
+            isEnd = inputCommand();
         }
 
     }

@@ -102,13 +102,13 @@ public class ModelNeuron
     public String toString()
     {
         StringBuffer sb = new StringBuffer();
-        sb.append("neuron~").append(status).append("\n").append( "countLayer = ").append(countLayer);
-        sb.append("weight = ").append(w).append(" signal = ").append(x).append(" valnode = ").append(y).append("\n");
-        sb.append("right = ").append(right).append("\n");
+        sb.append("\n").append("neuron~").append(status).append("\n").append( "countLayer = ").append(countLayer);
+        sb.append(" weight = ").append(w).append("\n");
+       /* sb.append("right = ").append(right).append("\n");
         sb.append("left = ").append(left).append("\n");
         sb.append("hiddenLeft = ").append(hiddenLeft).append("\n");
         sb.append("hiddenRight = ").append(hiddenRight).append("\n");
-        sb.append("parent = ").append(parent).append("\n");
+        sb.append("parent = ").append(parent).append("\n");*/
 
         return sb.toString();
 
