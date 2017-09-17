@@ -117,25 +117,6 @@ public class ModelNetwork
 
     }
 
-    private ModelNeuron[] connection(ModelNeuron[] neurons)//countRoot количество нейронов на входе; countNeurons количество нейронов в в первом промежуточном слое
-    {
-        int countNeurons = 3;
-        int j = 0;
-        for (int i = 0; i < countNeurons; i++) {
-            j++;
-            neurons[i].setLeft(neurons[j]);
-            neurons[j].setParent(neurons[i]);
-            j++;
-            neurons[i].setHiddenLeft(neurons[j]);
-            neurons[j].setParent(neurons[i]);
-            j++;
-            neurons[i].setHiddenRight(neurons[j]);
-            neurons[j].setParent(neurons[i]);
-        }
-
-
-        return neurons;
-    }
 
     private ArrayList<Double> coeff(int count) {
 

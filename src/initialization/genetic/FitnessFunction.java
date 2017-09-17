@@ -32,7 +32,7 @@ public class FitnessFunction implements IFitnessFunction{
     public FitnessFunction(String filename) throws IOException {
         super();
         s = new StringBuffer();
-        generateRandomFile(150);
+      //  generateRandomFile(150);
         Scanner in = new Scanner(new FileReader("ffout.txt"));
         this.vertexCount = in.nextInt();
         this.matrix = new double[this.vertexCount][this.vertexCount];

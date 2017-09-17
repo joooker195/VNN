@@ -16,7 +16,7 @@ public class View
         System.out.println("Welcome!");
 
         String isEnd = "no";
-        while (!isEnd.equals("yes")) {
+        while (!isEnd.equals("y")) {
             System.out.println("1-training");
             System.out.println("2-tesiting");
             System.out.println("3-test new model");
@@ -33,11 +33,11 @@ public class View
                             MainClass.runTraining("dataBrent.xls");
                             break;
                         }
-                        /*case 2:
+                        case 2:
                         {
                             System.out.println("Start training with WTI");
                             MainClass.runTraining("dataWTI.xls");
-                        }*/
+                        }
                     }
                     break;
                 }
@@ -53,19 +53,14 @@ public class View
                             MainClass.runTesting("dataTestBrent.xls");
                             break;
                         }
-                        /*case 2:
+                        case 2:
                         {
                             System.out.println("Start testing with WTI");
-                            MainClass.runTesting("dataWTI.xls");
-                        }*/
+                            MainClass.runTesting("dataTestWTI.xls");
+                        }
                     }
                     break;
 
-                }
-                case 3:
-                {
-                    System.out.println("run test");
-                    MainClass.test();
                 }
             }
 
