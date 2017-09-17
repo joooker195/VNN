@@ -1,0 +1,8 @@
+Brent
+1:G - cko - 0.33889; delta - 0.0351
+2:R - cko - 0.34116; delta - 0.0407
+3:A - sko - 0.33751; delta - 0.0386
+WTI
+1:G - sko - 0.02877; delta - 0.03703
+2:R - sko - 0.02936; delta - 0.04274
+3:A - sko - 0.02883; delta - 0.03670
