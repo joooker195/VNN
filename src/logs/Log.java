@@ -15,7 +15,7 @@ public class Log
 {
     public static boolean isDebugEnable = true;
     static StringBuffer  mes = new StringBuffer();
-    static String fileName = "D:\\Ксюша\\Универ\\TheDawnOfNewEra\\VNN\\debug\\debug.log";
+    static String fileName = "D:\\Ksenia\\Project\\VNN\\VNN\\debug.log";
     static BufferedWriter out;
 
     private static String getFile() throws IOException {

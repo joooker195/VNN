@@ -22,26 +22,20 @@ public class FitnessFunction implements IFitnessFunction{
     public long sortingTime = 0;
 
     private static final int BIT_TO_INT = 8;
-    private int pathLength = 0;
+    private int pathLength = 0;//столько же, соклько и нейронов
     private int[] path = null;
     private int[] seq = null;
-    private int vertexCount;
+    private int vertexCount;//количество геномов(нейронов)
     private double[][] matrix;
 
 
     public FitnessFunction(String filename) throws IOException {
         super();
-        s = new StringBuffer();
-      //  generateRandomFile(150);
+        generateRandomFile(150);
         Scanner in = new Scanner(new FileReader("ffout.txt"));
         this.vertexCount = in.nextInt();
         this.matrix = new double[this.vertexCount][this.vertexCount];
-        s.append("vertexCount = "+ vertexCount).append("\n");
-        for(int i=0;i<this.vertexCount;i++){
-            for(int j=0;j<this.vertexCount;j++){
-                this.matrix[i][j] = Double.valueOf(in.next());
-            }
-        }
+
         if(Log.isDebugEnable)
         {
             Log.debug("FitnessFunction#FitnessFunction(String filename)",  "run", false);
@@ -57,13 +51,12 @@ public class FitnessFunction implements IFitnessFunction{
     @Override
     public int getArity() {
 
-        return this.pathLength*BIT_TO_INT;
+        return this.pathLength*BIT_TO_INT;//Кол-во битов в геноме
     }
 
     @Override
-    public long run(long[] genom) {
-        long old = System.currentTimeMillis(); //time
-        s = new StringBuffer();
+    public long run(long[] genom)
+    {
         int offset=0;
         int vertexNumber=0;
         int index = 0;
@@ -80,19 +73,8 @@ public class FitnessFunction implements IFitnessFunction{
                 tmp >>= 8;
             }
         }
-
-        this.prepareTime += (System.currentTimeMillis()-old); //time
-        old = System.currentTimeMillis(); //time
-
         qsort(this.path,this.seq,0,this.pathLength-1);
-
-        this.sortingTime += (System.currentTimeMillis()-old); //time
-        old = System.currentTimeMillis(); //time
-
         long pathLength = this.checkPath(this.seq);
-
-        this.checkTime += (System.currentTimeMillis()-old); //time
-
         return (Long.MAX_VALUE-pathLength);
     }
 
@@ -127,7 +109,6 @@ public class FitnessFunction implements IFitnessFunction{
 
     public long checkPath(int[] path){
         long result = 0;
-        s = new StringBuffer();
         int pathLength = path.length;
         int predVertex = path[0];
         int nextVertex = 0;
@@ -135,14 +116,8 @@ public class FitnessFunction implements IFitnessFunction{
             for (int i = 1; i < pathLength; i++) {
                 nextVertex = path[i];
                 result += this.matrix[predVertex][nextVertex];
-                /*if (log.isDebugEnable()) {
-                    s.append("matrix = " + matrix[predVertex][nextVertex]).append(" result = " + result).append("\n");
-                }*/
                 predVertex = nextVertex;
             }
-            /*if (log.isDebugEnable()) {
-                log.debug("FitnessFunction#checkPath(int[] path)", s.toString(), false);
-            }*/
 
         }
         catch (Exception e)
@@ -153,24 +128,18 @@ public class FitnessFunction implements IFitnessFunction{
 
     }
 
-    public ArrayList<Double> result(){
+/*    public ArrayList<Double> result(){
         ArrayList<Double> r = new ArrayList<Double>();
-      //   s = new StringBuffer();
         String a = "";
         long result = 0;
         int pathLength = this.path.length;
         int predVertex = this.path[0];
         int nextVertex = 0;
         try {
-            for (int i = 1; i < 40; i++) {
+            for (int i = 1; i < pathLength; i++) {
                 nextVertex = path[i];
                 result += this.matrix[predVertex][nextVertex];
              //   System.out.println(this.matrix[predVertex][nextVertex]);
-                if (Log.isDebugEnable) {
-                   // s.append("matrix = " + matrix[predVertex][nextVertex]).append(" result = " + result).append("\n");
-                    a = a + "matrix = " + matrix[predVertex][nextVertex] +" result = " + result+"\n";
-
-                }
                 r.add(this.matrix[predVertex][nextVertex]);
                 predVertex = nextVertex;
             }
@@ -183,7 +152,7 @@ public class FitnessFunction implements IFitnessFunction{
             Log.debug("FitnessFunction#checkPath(int[] path)", " errorMes = " + e, true);
         }
         return r;
-    }
+    }*/
 
 
     public static void generateRandomFile(int n) throws IOException {

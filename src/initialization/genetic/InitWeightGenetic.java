@@ -17,8 +17,7 @@ public class InitWeightGenetic implements IInitWeight {
 
     @Override
     public ArrayList<Double> initWeight(int count) throws IOException {
-        StringBuffer s = new StringBuffer();
-        ArrayList<Double> result;
+        ArrayList<Double> result = new ArrayList<Double>();
         FitnessFunction ff = new FitnessFunction("matrix.txt");
         GeneticEngine ge = new GeneticEngine(ff);
         ge.setIndividualCount(5);
@@ -27,36 +26,14 @@ public class InitWeightGenetic implements IInitWeight {
         ge.setCrossingType(GeneticEngine.CrossingType.ELEMENTWISE_RECOMBINATION);
         ge.setUseMutation(true);
         ge.setMutationPercent(0.01d);
-
-        long time = System.currentTimeMillis();
         long[] better = ge.run();
-        result = ff.result();
+       // result = ff.result();
 
-        long timeToFF = ge.timeToFF;
-        long timeToCrossing = ge.timeToCrossing;
-        long timeToMutate = ge.timeToMutate;
-
-        if(Log.isDebugEnable)
+        for(int i=0; i< better.length; i++)
         {
-            s.append("Running:\t" + (System.currentTimeMillis() - time) / 1000 + " secs").append("\n");
-            s.append("FitnessFunc:\t" + timeToFF / 1000 + " secs").append("\n");
-            s.append(" - FF Prepare:\t" + ff.prepareTime / 1000 + " secs").append("\n");
-            s.append(" - FF QSort:\t" + ff.sortingTime / 1000 + " secs");
-            s.append(" - FF Check: \t" + ff.checkTime / 1000 + " secs").append("\n");
-            s.append("Crossing:\t" + timeToCrossing / 1000 + " secs").append("\n");
-            s.append("Mutate: \t" + timeToMutate / 1000 + " secs").append("\n");
-            /*s.append(Long.MAX_VALUE - ff.run(better)).append("\n");*/
-
-           // Log.debug("InitWeightGenetic#initWeight(int count)", s.toString(), false);
+            result.add(Double.valueOf(better[i]));
         }
         return result;
     }
 
-    private static void printLongInBin(long l, int last){
-        if (last>0){
-            int p = (int)(l & 1);
-            printLongInBin(l>>1,--last);
-            System.out.print(p);
-        }
-    }
 }
