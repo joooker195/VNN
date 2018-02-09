@@ -18,11 +18,11 @@ public class InitWeightAnnealing implements IInitWeight
 {
 
     private Random r = new Random();
-    private Cities cities;
-    private ArrayList<Double> states;
-    private int count;
-    private double initialTemperature;
-    private double endTemperature;
+    private Cities cities; //координаты городов
+    private ArrayList<Double> states; // маршрут (или наилучшее расположение нейронов)
+    private int count;//количество городов (нейронов)
+    private double initialTemperature; //начальная температура
+    private double endTemperature;//конечная температура
     private double T;
 
     public InitWeightAnnealing(double tmax, double tmin)
@@ -64,7 +64,7 @@ public class InitWeightAnnealing implements IInitWeight
         }
         cities = new Cities(x, y);
         this.count = count;
-        states = generateStateCandidate();
+        states = generateStateCandidate(); //вычисляем опитимальный путь
 
         for (int i=0; i< states.size(); i++)
         {
@@ -106,22 +106,22 @@ public class InitWeightAnnealing implements IInitWeight
             states.add((double)r.nextInt(15));
         }
 
-        energyCurrent = CalculateEnergy.calEner(states, cities);
+        energyCurrent = CalculateEnergy.calEner(states, cities);//вычисляем текущую энергию
 
         String a = "";
         for(int i=1; ; i++)
         {
-            stateCondidates = GenerateStateCandidate.generate(states);
-            energyCondidates = CalculateEnergy.calEner(stateCondidates, cities);
+            stateCondidates = GenerateStateCandidate.generate(states);//возможный будущий маршрут
+            energyCondidates = CalculateEnergy.calEner(stateCondidates, cities);//вычисляется энергия в этой точки
 
-            if(energyCondidates < energyCurrent)
+            if(energyCondidates < energyCurrent)//логично, что если энергия снизилась, то все меняется
             {
                 energyCurrent = energyCondidates;
                 states = stateCondidates;
             }
             else
             {
-                if(MakeTransitProbility.calculate(energyCurrent, energyCondidates, T))
+                if(MakeTransitProbility.calculate(energyCurrent, energyCondidates, T))//иначе можно понадеяться на вероятность, что возможно все поменяется относительно температуры
                 {
                     energyCurrent = energyCondidates;
                     states = stateCondidates;
@@ -129,7 +129,7 @@ public class InitWeightAnnealing implements IInitWeight
 
             }
 
-            T = initialTemperature * 0.1 / i;
+            T = initialTemperature * 0.1 / i;//уменьшаем температуру
             if(Log.isDebugEnable)
                 System.out.println("T = "+ T);
 

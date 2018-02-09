@@ -12,10 +12,10 @@ public class GenerateStateCandidate
     {
         int n = states.size();
         Random r = new Random();
-        int i = r.nextInt(n);
+        int i = r.nextInt(n);//выципляем две координаты
         int j = r.nextInt(n);
 
-        if(i> j)
+        if(i>j) //если первая больше второй, то меняем две точки пути
         {
             double state = states.get(i);
             states.remove(i);

@@ -5,6 +5,7 @@ package initialization.annelign;
  */
 public class Metric
 {
+    //теорема Пифагора для евклида (расстояние между двумя точками маршрута)
     private static double distance;
     public static double calculate(double ax, double ay, double bx, double by)
     {

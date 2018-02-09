@@ -7,6 +7,7 @@ import java.util.ArrayList;
  */
 public class CalculateEnergy
 {
+    //как сумма Евклидовых расстояний
     private static double energy;
     public static double calEner(ArrayList<Double> states, Cities cities)
     {
