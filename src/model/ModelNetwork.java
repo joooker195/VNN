@@ -28,7 +28,7 @@ public class ModelNetwork
     public ArrayList createNetwork()
     {
         String s = "";
-        try {
+     //   try {
             out.setStatus("out");
             for (int i = 0; i < count; i++) {
                 firstLayer[i] = new ModelNeuron();
@@ -51,11 +51,11 @@ public class ModelNetwork
             network.add(secondLayer);
             network.add(thirdLayer);
 
-        }
+        /*}
         catch (Exception e) {
             System.out.println("Error");
             Log.debug("ModelNetwork#createNetwork(int countRoot, int countLayer)", "Exeption: " + e, e.getStackTrace());
-        }
+        }*/
 
         return network;
     }

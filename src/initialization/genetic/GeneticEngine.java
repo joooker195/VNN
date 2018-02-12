@@ -5,6 +5,12 @@ import java.util.Random;
 
 public class GeneticEngine {
 
+    public static final double CHANCE_TO_FULLNESS = 0.999d;
+    public static final SelectionType DEFAULT_SELECTION_TYPE = SelectionType.TOURNEY;
+    public static final CrossingType DEFAULT_CROSSING_TYPE = CrossingType.ONE_POINT_RECOMBINATION;
+    public static final boolean DEFAULT_USE_MUTATION = true;
+    public static final long DEFAULT_GENERATION_COUNT = 10000L;
+
     private Random random = new Random();
     private static FitnessFunction fitnessFunction;
     private int genomLength; //Длина генома в битах
@@ -17,6 +23,9 @@ public class GeneticEngine {
     private static long[][] genomListParents;
     private static long[][] genomListOffsprings;
     private static long currentGeneration = 0;
+    private int sizeOfArray;
+    private static long[] actual;
+    private static long[] fitnessFunctionResult;
 
     public static final int OCTET_LENGTH = 64; // Кол-во битов в лонге
     public static final int MASK_FOR_MOD = OCTET_LENGTH - 1; // вместо "x%64" я использую "x & MASK_FOR_MOD"
@@ -43,13 +52,32 @@ public class GeneticEngine {
         ONE_ELEMENT_EXCHANGE //Обмен одним геном.
     }
 
-    public GeneticEngine(FitnessFunction fitnessFunction) {...} //Конструктор
+    public GeneticEngine(FitnessFunction fitnessFunction) {
+    //Конструктор
+        this.fitnessFunction = fitnessFunction;
+        this.genomLength = fitnessFunction.getArity();
+        this.sizeOfArray = (int) Math.ceil((double) this.genomLength / OCTET_LENGTH);
+        this.generationCount = DEFAULT_GENERATION_COUNT;
+        this.individualCount = (int) (1 + Math.log(1 / Math.pow(1 - CHANCE_TO_FULLNESS, 1 / genomLength)) / Math.log(2));
+        this.selectionType = DEFAULT_SELECTION_TYPE;
+        this.crossingType = DEFAULT_CROSSING_TYPE;
+        this.useMutation = DEFAULT_USE_MUTATION;
+        this.mutationPercent = genomLength * (1 - Math.pow((1 - 10 * Math.pow((1 / 2), (genomLength - 1))),(1 / genomLength)));
+    }
 
 
-    public long[] run()
-    { //Основное тело
+    public long[] run()//Основное тело
+    {
         this.genomListParents = new long[this.individualCount][];
         this.genomListOffsprings = new long[this.individualCount][];
+
+        this.fitnessFunctionResult = new long[this.individualCount];
+
+        this.actual = new long[this.individualCount];
+        for (int i = 0; i < this.individualCount; i++) {
+            actual[i] = -1;
+        }
+
 
         // Первая генерация
         this.generateFirstGeneration();
@@ -82,9 +110,28 @@ public class GeneticEngine {
         return bestGenom;
     }
 
+    private long getFitnessFunctionResult(int genomNumber) {
+        if (this.actual[genomNumber] != this.currentGeneration) {
+            this.fitnessFunctionResult[genomNumber] = this.fitnessFunction.run(this.genomListParents[genomNumber]);
+            this.actual[genomNumber] = this.currentGeneration;
+        }
+        return this.fitnessFunctionResult[genomNumber];
+    }
 
-    private void generateFirstGeneration() {...} //генерация первого поколения
 
+    private void generateFirstGeneration() { //генерация первого поколения
+        for (int i = 0; i < this.individualCount; i++) {
+            this.genomListParents[i] = this.generateGenom();
+        }
+    }
+
+    private long[] generateGenom() {
+        long[] result = new long[this.sizeOfArray];
+        for (int i = 0; i < this.sizeOfArray; i++) {
+            result[i] = this.random.nextLong();
+        }
+        return result;
+    }
 
 
     private void selection() {//Процедура селекции
@@ -92,11 +139,11 @@ public class GeneticEngine {
             case ROULETTE_WHEEL: {
                 float[] wheel = new float[this.individualCount];//геномы
 
-                wheel[0] =  FF.getFitnessFunctionResult(0, genomListParents, currentGeneration); //Значение ФитнессФункции для 1-ого генома
+                wheel[0] =  this.getFitnessFunctionResult(0); //Значение ФитнессФункции для 1-ого генома
 
                 for (int i = 1; i < this.individualCount; i++)
                 {
-                    wheel[i] = wheel[i - 1] + FF.getFitnessFunctionResult(i, genomListParents, currentGeneration); //Значение ФитнессФункции для i-ого генома
+                    wheel[i] = wheel[i - 1] + this.getFitnessFunctionResult(i); //Значение ФитнессФункции для i-ого генома
                 }
                 float all = wheel[this.individualCount - 1];
 
@@ -127,8 +174,8 @@ public class GeneticEngine {
                     int index1 = random.nextInt(individualCount);
                     int index2 = random.nextInt(individualCount);
 
-                    long fr1 = FF.getFitnessFunctionResult(index1, genomListParents, currentGeneration); //Значение ФитнессФункции для index1 Генома
-                    long fr2 = FF.getFitnessFunctionResult(index2, genomListParents, currentGeneration); //Значение ФитнессФункции для index2 Генома
+                    long fr1 = this.getFitnessFunctionResult(index1); //Значение ФитнессФункции для index1 Генома
+                    long fr2 = this.getFitnessFunctionResult(index2); //Значение ФитнессФункции для index2 Генома
 
                     this.genomListOffsprings[i] = fr1 > fr2 ? this.genomListParents[index1].clone() : this.genomListParents[index2].clone();
                 }
@@ -151,7 +198,7 @@ public class GeneticEngine {
     {
         switch (crossingType) {
             case ELEMENTWISE_RECOMBINATION: {
-                for (int outerOffset = 0; outerOffset < this.individualCount; outerOffset++) {
+                for (int outerOffset = 0; outerOffset < this.sizeOfArray; outerOffset++) {
                     long mask = this.random.nextLong(); // какие биты менять, а какие нет (1-обмениваем битами, 0-оставляем)
                     long swapMask = (genom1[outerOffset] ^ genom2[outerOffset]) & mask;
 
@@ -193,5 +240,30 @@ public class GeneticEngine {
         bit = bit xor 1;
         Следовательно, чтобы инвертировать любой бит в числе необходимо сдвинуть единицу на нужную позицию.*/
 
+    }
+
+
+    public void setIndividualCount(int individualCount) {
+        this.individualCount = individualCount;
+    }
+
+    public void setSelectionType(SelectionType selectionType) {
+        this.selectionType = selectionType;
+    }
+
+    public void setCrossingType(CrossingType crossingType) {
+        this.crossingType = crossingType;
+    }
+
+    public void setUseMutation(boolean useMutation) {
+        this.useMutation = useMutation;
+    }
+
+    public void setGenerationCount(long generationCount) {
+        this.generationCount = generationCount;
+    }
+
+    public void setMutationPercent(double mutationPercent) {
+        this.mutationPercent = mutationPercent;
     }
 }

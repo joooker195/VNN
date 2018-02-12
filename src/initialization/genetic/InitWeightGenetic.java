@@ -18,7 +18,7 @@ public class InitWeightGenetic implements IInitWeight {
     @Override
     public ArrayList<Double> initWeight(int count) throws IOException {
         ArrayList<Double> result = new ArrayList<Double>();
-        FitnessFunction ff = new FitnessFunction("matrix.txt");
+        /*FitnessFunction ff = new FitnessFunction("matrix.txt");
         GeneticEngine ge = new GeneticEngine(ff);
         ge.setIndividualCount(5);
         ge.setGenerationCount(10);
@@ -26,12 +26,25 @@ public class InitWeightGenetic implements IInitWeight {
         ge.setCrossingType(GeneticEngine.CrossingType.ELEMENTWISE_RECOMBINATION);
         ge.setUseMutation(true);
         ge.setMutationPercent(0.01d);
-        long[] better = ge.run();
-       // result = ff.result();
+        long[] better = ge.run();*/
 
-        for(int i=0; i< better.length; i++)
+
+        FitnessFunction ff = new FitnessFunction("matrix.txt");
+        GeneticEngine ge = new GeneticEngine(ff);
+        ge.setIndividualCount(100);
+        ge.setGenerationCount(10000);
+        ge.setSelectionType(GeneticEngine.SelectionType.TOURNEY);
+        ge.setCrossingType(GeneticEngine.CrossingType.ELEMENTWISE_RECOMBINATION);
+        ge.setUseMutation(true);
+        ge.setMutationPercent(0.02d);
+
+        long[] better = ge.run();
+
+
+        for(int i=0; i< count; i++)
         {
-            result.add(Double.valueOf(better[i]));
+            double a = Double.valueOf(better[i]);
+            result.add( Double.valueOf(better[i]));
         }
         return result;
     }

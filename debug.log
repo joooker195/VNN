@@ -1,12 +1,2 @@
-57:58 ModelNetwork#coeff(int count): count = 40
-58:02 FitnessFunction#FitnessFunction(String filename): run
 
-00:18 java.lang.IndexOutOfBoundsException: Index: 1, Size: 0
-java.util.ArrayList.rangeCheck(ArrayList.java:657)
-java.util.ArrayList.get(ArrayList.java:433)
-mainfunction.TrainingTestingFunction.receiveSignal(TrainingTestingFunction.java:23)
-mainfunction.NetworkFunctional.trainingNetwork(NetworkFunctional.java:52)
-controll.Controller.trainingNetwork(Controller.java:23)
-main.MainClass.runTraining(MainClass.java:19)
-view.View.setvisibleView(View.java:33)
-main.MainClass.main(MainClass.java:38)
+29:54 ModelNetwork#coeff(int count): count = 40

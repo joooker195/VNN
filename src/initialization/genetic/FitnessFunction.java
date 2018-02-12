@@ -31,16 +31,10 @@ public class FitnessFunction implements IFitnessFunction{
 
     public FitnessFunction(String filename) throws IOException {
         super();
-        generateRandomFile(150);
+        generateRandomFile(320);
         Scanner in = new Scanner(new FileReader("ffout.txt"));
         this.vertexCount = in.nextInt();
-        this.matrix = new double[this.vertexCount][this.vertexCount];
-
-        if(Log.isDebugEnable)
-        {
-            Log.debug("FitnessFunction#FitnessFunction(String filename)",  "run", false);
-        }
-
+       // this.matrix = new double[this.vertexCount][this.vertexCount];
         in.close();
         this.pathLength = vertexCount;
         this.path = new int[this.pathLength];
@@ -128,45 +122,19 @@ public class FitnessFunction implements IFitnessFunction{
 
     }
 
-/*    public ArrayList<Double> result(){
-        ArrayList<Double> r = new ArrayList<Double>();
-        String a = "";
-        long result = 0;
-        int pathLength = this.path.length;
-        int predVertex = this.path[0];
-        int nextVertex = 0;
-        try {
-            for (int i = 1; i < pathLength; i++) {
-                nextVertex = path[i];
-                result += this.matrix[predVertex][nextVertex];
-             //   System.out.println(this.matrix[predVertex][nextVertex]);
-                r.add(this.matrix[predVertex][nextVertex]);
-                predVertex = nextVertex;
-            }
-            if (Log.isDebugEnable) {
-                Log.debug("FitnessFunction#checkPath(int[] path)", a, false);
-            }
-        }
-        catch (Exception e)
-        {
-            Log.debug("FitnessFunction#checkPath(int[] path)", " errorMes = " + e, true);
-        }
-        return r;
-    }*/
 
-
-    public static void generateRandomFile(int n) throws IOException {
+    private void generateRandomFile(int n) throws IOException {
         Random random = new Random();
         BufferedWriter out = new BufferedWriter(new FileWriter("ffout.txt"));
-        out.write(150+"\n");
+        out.write(n+"\n");
 
-        double[][] matrix = new double[n][n];
+        this.matrix = new double[n][n];
 
         for(int i=0;i<n-1;i++){
             for(int j=i+1;j<n;j++){
              //   matrix[i][j] = Calculate.getRandom();
-                matrix[i][j] = InitRandom.initGaussianRandomWeight();
-                matrix[j][i] = matrix[i][j];
+                this.matrix[i][j] = InitRandom.initGaussianRandomWeight();
+                this.matrix[j][i] = this.matrix[i][j];
             }
         }
 
