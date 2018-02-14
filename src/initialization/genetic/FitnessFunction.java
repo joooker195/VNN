@@ -16,6 +16,7 @@ public class FitnessFunction implements IFitnessFunction{
 
    // public Log log = new Log();
     StringBuffer s;
+    Random r = new Random();
 
     public long prepareTime = 0;
     public long checkTime = 0;
@@ -26,7 +27,7 @@ public class FitnessFunction implements IFitnessFunction{
     private int[] path = null;
     private int[] seq = null;
     private int vertexCount;//количество геномов(нейронов)
-    private double[][] matrix;
+    private int[][] matrix;
 
 
     public FitnessFunction(String filename) throws IOException {
@@ -109,7 +110,8 @@ public class FitnessFunction implements IFitnessFunction{
         try {
             for (int i = 1; i < pathLength; i++) {
                 nextVertex = path[i];
-                result += this.matrix[predVertex][nextVertex];
+                double a = this.matrix[predVertex][nextVertex];
+                result += a;
                 predVertex = nextVertex;
             }
 
@@ -128,12 +130,12 @@ public class FitnessFunction implements IFitnessFunction{
         BufferedWriter out = new BufferedWriter(new FileWriter("ffout.txt"));
         out.write(n+"\n");
 
-        this.matrix = new double[n][n];
+        this.matrix = new int[n][n];
 
         for(int i=0;i<n-1;i++){
             for(int j=i+1;j<n;j++){
              //   matrix[i][j] = Calculate.getRandom();
-                this.matrix[i][j] = InitRandom.initGaussianRandomWeight();
+                this.matrix[i][j] = r.nextInt(320);
                 this.matrix[j][i] = this.matrix[i][j];
             }
         }

@@ -43,8 +43,8 @@ public class InitWeightGenetic implements IInitWeight {
 
         for(int i=0; i< count; i++)
         {
-            double a = Double.valueOf(better[i]);
-            result.add( Double.valueOf(better[i]));
+            double a = (double) better[i];
+            result.add( (double) better[i]);
         }
         return result;
     }
