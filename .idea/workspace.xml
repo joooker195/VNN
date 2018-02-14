@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4e95ee3d-cb71-45af-9e1e-30e4d823d37a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/initialization/g/GA.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GradProjectVNN/initialization/genetic/FitnessFunction.class" afterPath="$PROJECT_DIR$/out/production/GradProjectVNN/initialization/genetic/FitnessFunction.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/GradProjectVNN/initialization/genetic/InitWeightGenetic.class" afterPath="$PROJECT_DIR$/out/production/GradProjectVNN/initialization/genetic/InitWeightGenetic.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/debug.log" afterPath="$PROJECT_DIR$/debug.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ffout.txt" afterPath="$PROJECT_DIR$/ffout.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/initialization/genetic/FitnessFunction.java" afterPath="$PROJECT_DIR$/src/initialization/genetic/FitnessFunction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/initialization/genetic/InitWeightGenetic.java" afterPath="$PROJECT_DIR$/src/initialization/genetic/InitWeightGenetic.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/initialization/g/GA.java" afterPath="$PROJECT_DIR$/src/initialization/g/GA.java" />
     </list>
     <ignored path="GradProjectVNN.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -75,14 +68,18 @@
       <file leaf-file-name="GA.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/initialization/g/GA.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="2" lean-forward="false" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
+            <state relative-caret-position="673">
+              <caret line="237" column="9" lean-forward="false" selection-start-line="237" selection-start-column="9" selection-end-line="237" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#598#607#0" expanded="true" />
-                <element signature="e#660#668#0" expanded="true" />
-                <element signature="e#2474#2475#0" expanded="true" />
-                <element signature="e#2550#2551#0" expanded="true" />
+                <element signature="e#639#648#0" expanded="true" />
+                <element signature="e#699#708#0" expanded="true" />
+                <element signature="e#758#766#0" expanded="true" />
+                <element signature="e#812#820#0" expanded="true" />
+                <element signature="e#2620#2621#0" expanded="true" />
+                <element signature="e#2696#2697#0" expanded="true" />
+                <element signature="e#5533#5534#0" expanded="true" />
+                <element signature="e#5633#5634#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -91,12 +88,22 @@
       <file leaf-file-name="GeneticEngine.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/initialization/genetic/GeneticEngine.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
+            <state relative-caret-position="-471">
               <caret line="54" column="16" lean-forward="false" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
               <folding>
                 <element signature="e#9567#9568#0" expanded="true" />
                 <element signature="e#9621#9622#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FitnessFunction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/initialization/genetic/FitnessFunction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="656">
+              <caret line="102" column="5" lean-forward="true" selection-start-line="75" selection-start-column="4" selection-end-line="102" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -125,7 +132,10 @@
       <find>fitnessFunctionResult</find>
       <find>matrix</find>
       <find>result</find>
+      <find>GA_ELITRATE</find>
+      <find>GA_MUTATIONRATE</find>
       <find>SelectionType</find>
+      <find>fitness_sort</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -219,6 +229,13 @@
               <item name="VNN" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="initialization" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GradProjectVNN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="VNN" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="initialization" type="462c0819:PsiDirectoryNode" />
+              <item name="genetic" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GradProjectVNN" type="b2602c69:ProjectViewProjectNode" />
@@ -1014,17 +1031,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/initialization/genetic/FitnessFunction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1853">
-          <caret line="145" column="13" lean-forward="true" selection-start-line="145" selection-start-column="13" selection-end-line="145" selection-end-column="13" />
-          <folding>
-            <element signature="docComment;class#FitnessFunction#0" expanded="false" />
-            <element signature="method#qsort#0;class#FitnessFunction#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/controll/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -1051,17 +1057,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/initialization/genetic/GeneticEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="54" column="16" lean-forward="false" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
-          <folding>
-            <element signature="e#9567#9568#0" expanded="true" />
-            <element signature="e#9621#9622#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/initialization/genetic/InitWeightGenetic.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="418">
@@ -1070,16 +1065,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/initialization/genetic/GeneticEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-471">
+          <caret line="54" column="16" lean-forward="false" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
+          <folding>
+            <element signature="e#9567#9568#0" expanded="true" />
+            <element signature="e#9621#9622#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/initialization/genetic/FitnessFunction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="656">
+          <caret line="102" column="5" lean-forward="true" selection-start-line="75" selection-start-column="4" selection-end-line="102" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/initialization/g/GA.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="2" lean-forward="false" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
+        <state relative-caret-position="673">
+          <caret line="237" column="9" lean-forward="false" selection-start-line="237" selection-start-column="9" selection-end-line="237" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#598#607#0" expanded="true" />
-            <element signature="e#660#668#0" expanded="true" />
-            <element signature="e#2474#2475#0" expanded="true" />
-            <element signature="e#2550#2551#0" expanded="true" />
+            <element signature="e#639#648#0" expanded="true" />
+            <element signature="e#699#708#0" expanded="true" />
+            <element signature="e#758#766#0" expanded="true" />
+            <element signature="e#812#820#0" expanded="true" />
+            <element signature="e#2620#2621#0" expanded="true" />
+            <element signature="e#2696#2697#0" expanded="true" />
+            <element signature="e#5533#5534#0" expanded="true" />
+            <element signature="e#5633#5634#0" expanded="true" />
           </folding>
         </state>
       </provider>
