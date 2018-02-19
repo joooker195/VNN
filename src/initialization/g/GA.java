@@ -6,7 +6,7 @@ public class GA
 {
     private Random r = new Random();
     private final int GA_POPSIZE = 2048;
-    private final String GA_TARGET = "Hey!!!+)";
+    private final String GA_TARGET = "Hey!!!";
 
     private int fitness = 0;
     private int bestFitness = 0;
@@ -80,7 +80,7 @@ public class GA
 
     }
 
-    private void mate()
+    private void selection()
     {
         int tsize = GA_TARGET.length(), spos, i1, i2;
         this.bufferStr.addAll(populationStr);
@@ -134,7 +134,7 @@ public class GA
                 bestStr = populationStr.get(0);
                 printBestPop();
             }
-            mate();
+            selection();
 
         }
     }

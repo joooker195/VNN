@@ -143,8 +143,8 @@ public class ModelNetwork
                 }
                 case 3:
                 {
-                    GA ga = new GA();
-                    ga.run();
+                    initialization.g.InitWeightGenetic ga = new initialization.g.InitWeightGenetic();
+                    ga.run(count);
                     init = new InitRandom();
                 }
             }
