@@ -10,13 +10,13 @@ import java.util.Random;
 public class InitWeightGenetic
 {
 
-    private final int GA_POPSIZE = 10;
+    private final int GA_POPSIZE = 2000;
 
     private Random r = new Random();
     private int fitness = 0;
     private int bestFitness = 0;
     private String bestPop = "";
-    private ArrayList<Double> popNum = new ArrayList<Double>();
+    private ArrayList<Double> popNum;
     private List<ArrayList<Double>> populationWeight = new ArrayList<ArrayList<Double>>();
     private List<List<Integer>> populationFitness = new ArrayList<List<Integer>>();
     private List<Double> bufferWeight = new ArrayList<Double>();
@@ -26,12 +26,13 @@ public class InitWeightGenetic
     {
         for(int i=0; i<GA_POPSIZE; i++)
         {
-            for(int j=0; j<2; j++)
+            popNum = new ArrayList<Double>();
+            for(int j=0; j<countWeight; j++)
             {
                 popNum.add(r.nextGaussian());
             }
             populationWeight.add(popNum);
-            popNum.clear();
+         //   popNum.clear();
         }
     }
 

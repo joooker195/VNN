@@ -1,124 +1,124 @@
-22:28 ModelNetwork#coeff(int count): count = 40
+12:32 ModelNetwork#coeff(int count): count = 40
 
-22:28 ModelNetwork#coeff(int count): count = 40
-23:53 ModelNetwork#connection(ModelNeuron[] neurons): 
+12:32 ModelNetwork#coeff(int count): count = 40
+12:42 ModelNetwork#connection(ModelNeuron[] neurons): 
 neuron~out
 countLayer = 0.0 weight = 0.0
 
 neuron~0
-countLayer = 1.0 weight = -1.521941191E9
+countLayer = 1.0 weight = 1.743484166E9
 
 neuron~1
-countLayer = 1.0 weight = -1.608086044E9
+countLayer = 1.0 weight = 6.81197889E8
 
 neuron~2
-countLayer = 1.0 weight = -8.92123988E8
+countLayer = 1.0 weight = -1.216769277E9
 
 neuron~00
-countLayer = 2.0 weight = 2.134731769E9
+countLayer = 2.0 weight = 8.00423694E8
 
 neuron~01
-countLayer = 2.0 weight = -2.2866032E8
+countLayer = 2.0 weight = -1.262445218E9
 
 neuron~02
-countLayer = 2.0 weight = -1.146038005E9
+countLayer = 2.0 weight = -2.111442135E9
 
 neuron~10
-countLayer = 2.0 weight = -2.2866032E8
+countLayer = 2.0 weight = -1.262445218E9
 
 neuron~11
-countLayer = 2.0 weight = 1.026651732E9
+countLayer = 2.0 weight = 1.465826343E9
 
 neuron~12
-countLayer = 2.0 weight = 6.33726089E8
+countLayer = 2.0 weight = 3.7474253E8
 
 neuron~20
-countLayer = 2.0 weight = -1.146038005E9
+countLayer = 2.0 weight = -2.111442135E9
 
 neuron~21
-countLayer = 2.0 weight = 6.33726089E8
+countLayer = 2.0 weight = 3.7474253E8
 
 neuron~22
-countLayer = 2.0 weight = 9.37207139E8
+countLayer = 2.0 weight = 1.019304282E9
 
 neuron~000
-countLayer = 3.0 weight = -2.020394971E9
+countLayer = 3.0 weight = -2.2866032E8
 
 neuron~001
-countLayer = 3.0 weight = -1.671478055E9
+countLayer = 3.0 weight = -2.109840685E9
 
 neuron~002
-countLayer = 3.0 weight = 1.285191864E9
+countLayer = 3.0 weight = -6.44425681E8
 
 neuron~010
-countLayer = 3.0 weight = -1.671478055E9
+countLayer = 3.0 weight = -2.109840685E9
 
 neuron~011
-countLayer = 3.0 weight = -1.671478055E9
+countLayer = 3.0 weight = 1.77359561E9
 
 neuron~012
-countLayer = 3.0 weight = 3.89540944E8
+countLayer = 3.0 weight = 1.533339688E9
 
 neuron~020
-countLayer = 3.0 weight = 1.285191864E9
+countLayer = 3.0 weight = -6.44425681E8
 
 neuron~021
-countLayer = 3.0 weight = 3.89540944E8
+countLayer = 3.0 weight = 1.533339688E9
 
 neuron~022
-countLayer = 3.0 weight = -5.41981144E8
+countLayer = 3.0 weight = -1.735547376E9
 
 neuron~100
-countLayer = 3.0 weight = -1.671478055E9
+countLayer = 3.0 weight = -2.109840685E9
 
 neuron~101
-countLayer = 3.0 weight = -1.671478055E9
+countLayer = 3.0 weight = 1.77359561E9
 
 neuron~102
-countLayer = 3.0 weight = 3.89540944E8
+countLayer = 3.0 weight = 1.533339688E9
 
 neuron~110
-countLayer = 3.0 weight = -1.671478055E9
+countLayer = 3.0 weight = 1.77359561E9
 
 neuron~111
-countLayer = 3.0 weight = -1.873952827E9
+countLayer = 3.0 weight = 3.59524702E8
 
 neuron~112
-countLayer = 3.0 weight = 1.385153257E9
+countLayer = 3.0 weight = 1.345747107E9
 
 neuron~120
-countLayer = 3.0 weight = 3.89540944E8
+countLayer = 3.0 weight = 1.533339688E9
 
 neuron~121
-countLayer = 3.0 weight = 1.385153257E9
+countLayer = 3.0 weight = 1.345747107E9
 
 neuron~122
-countLayer = 3.0 weight = -5.6731229E8
+countLayer = 3.0 weight = 1.569669695E9
 
 neuron~200
-countLayer = 3.0 weight = 1.285191864E9
+countLayer = 3.0 weight = -6.44425681E8
 
 neuron~201
-countLayer = 3.0 weight = 3.89540944E8
+countLayer = 3.0 weight = 1.533339688E9
 
 neuron~202
-countLayer = 3.0 weight = -5.41981144E8
+countLayer = 3.0 weight = -1.735547376E9
 
 neuron~210
-countLayer = 3.0 weight = 3.89540944E8
+countLayer = 3.0 weight = 1.533339688E9
 
 neuron~211
-countLayer = 3.0 weight = 1.385153257E9
+countLayer = 3.0 weight = 1.345747107E9
 
 neuron~212
-countLayer = 3.0 weight = -5.6731229E8
+countLayer = 3.0 weight = 1.569669695E9
 
 neuron~220
-countLayer = 3.0 weight = -5.41981144E8
+countLayer = 3.0 weight = -1.735547376E9
 
 neuron~221
-countLayer = 3.0 weight = -5.6731229E8
+countLayer = 3.0 weight = 1.569669695E9
 
 neuron~222
-countLayer = 3.0 weight = -1.080015988E9
+countLayer = 3.0 weight = 1.055682904E9
 
