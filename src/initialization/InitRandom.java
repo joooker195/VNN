@@ -20,11 +20,11 @@ public class InitRandom implements IInitWeight
     @Override
     public ArrayList<Double> initWeight(int count) {
 
-       /* for(int i=0; i<count; i++) {
+        for(int i=0; i<count; i++) {
             double a = initGaussianRandomWeight();
 
             weights.add(a);
-        }*/
+        }
         Scanner in = null;
         try {
             in = new Scanner(new FileReader("ffout.txt"));

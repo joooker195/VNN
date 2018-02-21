@@ -1,124 +1,246 @@
-12:32 ModelNetwork#coeff(int count): count = 40
-
-12:32 ModelNetwork#coeff(int count): count = 40
-12:42 ModelNetwork#connection(ModelNeuron[] neurons): 
+11:46 ModelNetwork#coeff(int count): count = 40
+11:49 ModelNetwork#connection(ModelNeuron[] neurons): 
 neuron~out
 countLayer = 0.0 weight = 0.0
 
 neuron~0
-countLayer = 1.0 weight = 1.743484166E9
+countLayer = 1.0 weight = -0.5775514195934064
 
 neuron~1
-countLayer = 1.0 weight = 6.81197889E8
+countLayer = 1.0 weight = -0.36536909258947464
 
 neuron~2
-countLayer = 1.0 weight = -1.216769277E9
+countLayer = 1.0 weight = -0.23798631066664927
 
 neuron~00
-countLayer = 2.0 weight = 8.00423694E8
+countLayer = 2.0 weight = -0.19325314401881252
 
 neuron~01
-countLayer = 2.0 weight = -1.262445218E9
+countLayer = 2.0 weight = -0.2868734230698521
 
 neuron~02
-countLayer = 2.0 weight = -2.111442135E9
+countLayer = 2.0 weight = -0.6916906470363052
 
 neuron~10
-countLayer = 2.0 weight = -1.262445218E9
+countLayer = 2.0 weight = -0.2868734230698521
 
 neuron~11
-countLayer = 2.0 weight = 1.465826343E9
+countLayer = 2.0 weight = -0.339988318350447
 
 neuron~12
-countLayer = 2.0 weight = 3.7474253E8
+countLayer = 2.0 weight = -0.3752439618452051
 
 neuron~20
-countLayer = 2.0 weight = -2.111442135E9
+countLayer = 2.0 weight = -0.6916906470363052
 
 neuron~21
-countLayer = 2.0 weight = 3.7474253E8
+countLayer = 2.0 weight = -0.3752439618452051
 
 neuron~22
-countLayer = 2.0 weight = 1.019304282E9
+countLayer = 2.0 weight = -0.22387199665976265
 
 neuron~000
-countLayer = 3.0 weight = -2.2866032E8
+countLayer = 3.0 weight = -0.5089798071716697
 
 neuron~001
-countLayer = 3.0 weight = -2.109840685E9
+countLayer = 3.0 weight = -0.25820575105486193
 
 neuron~002
-countLayer = 3.0 weight = -6.44425681E8
+countLayer = 3.0 weight = -0.3441875222060176
 
 neuron~010
-countLayer = 3.0 weight = -2.109840685E9
+countLayer = 3.0 weight = -0.25820575105486193
 
 neuron~011
-countLayer = 3.0 weight = 1.77359561E9
+countLayer = 3.0 weight = -0.05985758524828634
 
 neuron~012
-countLayer = 3.0 weight = 1.533339688E9
+countLayer = 3.0 weight = -0.8947053452700156
 
 neuron~020
-countLayer = 3.0 weight = -6.44425681E8
+countLayer = 3.0 weight = -0.3441875222060176
 
 neuron~021
-countLayer = 3.0 weight = 1.533339688E9
+countLayer = 3.0 weight = -0.8947053452700156
 
 neuron~022
-countLayer = 3.0 weight = -1.735547376E9
+countLayer = 3.0 weight = -0.3651013080809229
 
 neuron~100
-countLayer = 3.0 weight = -2.109840685E9
+countLayer = 3.0 weight = -0.25820575105486193
 
 neuron~101
-countLayer = 3.0 weight = 1.77359561E9
+countLayer = 3.0 weight = -0.05985758524828634
 
 neuron~102
-countLayer = 3.0 weight = 1.533339688E9
+countLayer = 3.0 weight = -0.8947053452700156
 
 neuron~110
-countLayer = 3.0 weight = 1.77359561E9
+countLayer = 3.0 weight = -0.05985758524828634
 
 neuron~111
-countLayer = 3.0 weight = 3.59524702E8
+countLayer = 3.0 weight = -0.11565945411254874
 
 neuron~112
-countLayer = 3.0 weight = 1.345747107E9
+countLayer = 3.0 weight = -0.18348347139328128
 
 neuron~120
-countLayer = 3.0 weight = 1.533339688E9
+countLayer = 3.0 weight = -0.8947053452700156
 
 neuron~121
-countLayer = 3.0 weight = 1.345747107E9
+countLayer = 3.0 weight = -0.18348347139328128
 
 neuron~122
-countLayer = 3.0 weight = 1.569669695E9
+countLayer = 3.0 weight = -0.8781863286359253
 
 neuron~200
-countLayer = 3.0 weight = -6.44425681E8
+countLayer = 3.0 weight = -0.3441875222060176
 
 neuron~201
-countLayer = 3.0 weight = 1.533339688E9
+countLayer = 3.0 weight = -0.8947053452700156
 
 neuron~202
-countLayer = 3.0 weight = -1.735547376E9
+countLayer = 3.0 weight = -0.3651013080809229
 
 neuron~210
-countLayer = 3.0 weight = 1.533339688E9
+countLayer = 3.0 weight = -0.8947053452700156
 
 neuron~211
-countLayer = 3.0 weight = 1.345747107E9
+countLayer = 3.0 weight = -0.18348347139328128
 
 neuron~212
-countLayer = 3.0 weight = 1.569669695E9
+countLayer = 3.0 weight = -0.8781863286359253
 
 neuron~220
-countLayer = 3.0 weight = -1.735547376E9
+countLayer = 3.0 weight = -0.3651013080809229
 
 neuron~221
-countLayer = 3.0 weight = 1.569669695E9
+countLayer = 3.0 weight = -0.8781863286359253
 
 neuron~222
-countLayer = 3.0 weight = 1.055682904E9
+countLayer = 3.0 weight = -0.35123364104289523
 
+
+11:46 ModelNetwork#coeff(int count): count = 40
+11:49 ModelNetwork#connection(ModelNeuron[] neurons): 
+neuron~out
+countLayer = 0.0 weight = 0.0
+
+neuron~0
+countLayer = 1.0 weight = -0.5775514195934064
+
+neuron~1
+countLayer = 1.0 weight = -0.36536909258947464
+
+neuron~2
+countLayer = 1.0 weight = -0.23798631066664927
+
+neuron~00
+countLayer = 2.0 weight = -0.19325314401881252
+
+neuron~01
+countLayer = 2.0 weight = -0.2868734230698521
+
+neuron~02
+countLayer = 2.0 weight = -0.6916906470363052
+
+neuron~10
+countLayer = 2.0 weight = -0.2868734230698521
+
+neuron~11
+countLayer = 2.0 weight = -0.339988318350447
+
+neuron~12
+countLayer = 2.0 weight = -0.3752439618452051
+
+neuron~20
+countLayer = 2.0 weight = -0.6916906470363052
+
+neuron~21
+countLayer = 2.0 weight = -0.3752439618452051
+
+neuron~22
+countLayer = 2.0 weight = -0.22387199665976265
+
+neuron~000
+countLayer = 3.0 weight = -0.5089798071716697
+
+neuron~001
+countLayer = 3.0 weight = -0.25820575105486193
+
+neuron~002
+countLayer = 3.0 weight = -0.3441875222060176
+
+neuron~010
+countLayer = 3.0 weight = -0.25820575105486193
+
+neuron~011
+countLayer = 3.0 weight = -0.05985758524828634
+
+neuron~012
+countLayer = 3.0 weight = -0.8947053452700156
+
+neuron~020
+countLayer = 3.0 weight = -0.3441875222060176
+
+neuron~021
+countLayer = 3.0 weight = -0.8947053452700156
+
+neuron~022
+countLayer = 3.0 weight = -0.3651013080809229
+
+neuron~100
+countLayer = 3.0 weight = -0.25820575105486193
+
+neuron~101
+countLayer = 3.0 weight = -0.05985758524828634
+
+neuron~102
+countLayer = 3.0 weight = -0.8947053452700156
+
+neuron~110
+countLayer = 3.0 weight = -0.05985758524828634
+
+neuron~111
+countLayer = 3.0 weight = -0.11565945411254874
+
+neuron~112
+countLayer = 3.0 weight = -0.18348347139328128
+
+neuron~120
+countLayer = 3.0 weight = -0.8947053452700156
+
+neuron~121
+countLayer = 3.0 weight = -0.18348347139328128
+
+neuron~122
+countLayer = 3.0 weight = -0.8781863286359253
+
+neuron~200
+countLayer = 3.0 weight = -0.3441875222060176
+
+neuron~201
+countLayer = 3.0 weight = -0.8947053452700156
+
+neuron~202
+countLayer = 3.0 weight = -0.3651013080809229
+
+neuron~210
+countLayer = 3.0 weight = -0.8947053452700156
+
+neuron~211
+countLayer = 3.0 weight = -0.18348347139328128
+
+neuron~212
+countLayer = 3.0 weight = -0.8781863286359253
+
+neuron~220
+countLayer = 3.0 weight = -0.3651013080809229
+
+neuron~221
+countLayer = 3.0 weight = -0.8781863286359253
+
+neuron~222
+countLayer = 3.0 weight = -0.35123364104289523
+
+11:53 NetworkFunctional#testingNetworkThreeRoot(ArrayList<Double> data, ModelNeuron[] neurons): java.lang.IndexOutOfBoundsException: Index: 247, Size: 247

@@ -3,7 +3,6 @@ package model;
 import initialization.IInitWeight;
 import initialization.InitRandom;
 import initialization.annelign.InitWeightAnnealing;
-import initialization.g.GA;
 import initialization.genetic.InitWeightGenetic;
 import logs.Log;
 import view.View;
@@ -143,9 +142,7 @@ public class ModelNetwork
                 }
                 case 3:
                 {
-                    initialization.g.InitWeightGenetic ga = new initialization.g.InitWeightGenetic();
-                    ga.run(count);
-                    init = new InitRandom();
+                    init = new InitWeightGenetic();
                 }
             }
 
