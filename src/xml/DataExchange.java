@@ -1,23 +1,21 @@
 package xml;
 
-import logs.Log;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.hssf.util.CellRangeAddress;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.usermodel.charts.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.ss.usermodel.Workbook;
+import view.windows.ViewWindows;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-/**
- * Created by Ксю on 12.09.2017.
- */
+
+
 public class DataExchange
 {
     public static ArrayList<Double> dataout;
@@ -83,7 +81,7 @@ public class DataExchange
         }
         catch (IOException e)
         {
-            Log.debug("DataExchange#writeToExcel(String nameFile)", e.toString(), e.getStackTrace());
+            ViewWindows.setInfoToConsole(e.getLocalizedMessage());
         }
 
     }

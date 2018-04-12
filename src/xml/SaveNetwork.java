@@ -18,32 +18,29 @@ import java.util.List;
  */
 public class SaveNetwork
 {
-    public static ModelNeuron[] unmarshalling(String fileName) throws IOException, ClassNotFoundException
+    public static ArrayList unmarshalling(String fileName) throws IOException, ClassNotFoundException
     {//чтение из xml
-        ArrayList<ModelNeuron> list;
+        ArrayList list;
         XStream xStream = new XStream(new DomDriver());//создаем объект
         xStream.alias("Data", List.class);
         xStream.registerConverter((Converter) new EncodedByteArrayConverter());
         list = (ArrayList<ModelNeuron>)xStream.fromXML(new File(fileName));
         ModelNeuron[] neurons = new ModelNeuron[list.size()];
-        for (int i=0; i<list.size();i++)
-        {
-            neurons[i] = list.get(i);
-        }
-        return neurons;
+        return list;
     }
 
-    public static void marshalling(ModelNeuron[] neurons) throws IOException
+
+    public static void marshalling(ArrayList neurons) throws IOException
     {//запись в xml
-        ArrayList<ModelNeuron> a = new ArrayList<ModelNeuron>();
+        /*ArrayList<ModelNeuron> a = new ArrayList<ModelNeuron>();
         for(int i=0; i<neurons.length; i++)
         {
             a.add(neurons[i]);
-        }
+        }*/
         XStream xStream = new XStream(new DomDriver()); //создаем объект XStream
         xStream.alias("Data", List.class);
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File("savedNetwork.xml")));//записываем текст xml обычным бафером в файл saveData.xml
-        String xml = xStream.toXML(a);//запихиваем в xml наш объект "большой список"
+        String xml = xStream.toXML(neurons);//запихиваем в xml наш объект "большой список"
         bufferedWriter.write(xml);//записываем xml в файл
         bufferedWriter.close();
     }

@@ -2,10 +2,9 @@ package model;
 
 import initialization.IInitWeight;
 import initialization.InitRandom;
-import initialization.annelign.InitWeightAnnealing;
+import initialization.annealing.InitWeightAnnealing;
 import initialization.genetic.InitWeightGenetic;
-import logs.Log;
-import view.View;
+import view.windows.ViewWindows;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -110,11 +109,6 @@ public class ModelNetwork
             }
         }
 
-        if (Log.isDebugEnable)
-        {
-            Log.debug("ModelNetwork#connection(ModelNeuron[] neurons)", s, false);
-        }
-
     }
 
 
@@ -124,24 +118,25 @@ public class ModelNetwork
         try {
 
             IInitWeight init = new InitRandom();
-            if (Log.isDebugEnable) {
-                Log.debug("ModelNetwork#coeff(int count)", "count = " + count, true);
-            }
 
-            switch (Integer.parseInt(View.chooseInit()))
+
+            switch (ViewWindows.getNumberOfInit())
             {
                 case 1:
                 {
+                    ViewWindows.setInfoToConsole("Rand");
                     init = new InitRandom();
                     break;
                 }
                 case 2:
                 {
+                    ViewWindows.setInfoToConsole("Annea");
                     init = new InitWeightAnnealing(1, 1E-7);
                     break;
                 }
                 case 3:
                 {
+                    ViewWindows.setInfoToConsole("Gen");
                     init = new InitWeightGenetic();
                 }
             }
@@ -151,7 +146,7 @@ public class ModelNetwork
         }
         catch (IOException e)
         {
-            Log.debug("ModelNetwork2#coeff(int count)", e.toString(), e.getStackTrace());
+            ViewWindows.setInfoToConsole(e.getLocalizedMessage());
         }
 
         return coefficients;

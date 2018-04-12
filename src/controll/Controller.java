@@ -4,6 +4,7 @@ import model.*;
 import mainfunction.*;
 
 import xml.DataExchange;
+import xml.SaveNetwork;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -41,7 +42,7 @@ public class Controller
         System.out.println("Запись окончена.");
     }
 
-    /*public static void setNetwork() throws IOException {
+    public static void setNetwork() throws IOException {
         SaveNetwork.marshalling(neurons);
         //View.info = "Сеть сохранена.";
     }
@@ -50,5 +51,5 @@ public class Controller
     {
         neurons = SaveNetwork.unmarshalling(file);
         //View.info = "Сеть загружена.";
-    }*/
+    }
 }

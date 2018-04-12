@@ -1,15 +1,11 @@
 package mainfunction;
 
-import logs.Log;
 import math.Calculate;
-import model.ModelNeuron;
+import view.windows.ViewWindows;
 import xml.DataExchange;
 
 import java.util.ArrayList;
 
-/**
- * Created by Ксю on 12.09.2017.
- */
 public class NetworkFunctional
 {
     public static double SCO = 0;
@@ -44,8 +40,7 @@ public class NetworkFunctional
                         sample = Calculate.normalize(data.get(numberSamples), TrainingTestingFunction.MO, TrainingTestingFunction.D);
                         numberSamples++;
                     } catch (Exception e) {
-                        Log.debug("NetworkFunctional#trainingNetworkThreeRoot(ArrayList<Double> data, ModelNeuron[] neurons)",
-                                e.toString(), false);
+                        ViewWindows.setInfoToConsole(e.getLocalizedMessage());
                         numberSamples = 0;
                         continue;
                     }
@@ -64,8 +59,7 @@ public class NetworkFunctional
 
             System.out.println(err);
         } catch (RuntimeException e) {
-            Log.debug("NetworkFunctional#trainingNetworkThreeRoot(ArrayList<Double> data, ModelNeuron[] neurons)",
-                    e.toString(), e.getStackTrace());
+            ViewWindows.setInfoToConsole(e.getLocalizedMessage());
         }
         return neurons;
 
@@ -93,9 +87,9 @@ public class NetworkFunctional
                     numberSamples++;
                     sample = Calculate.normalize(data.get(numberSamples), TrainingTestingFunction.MO, TrainingTestingFunction.D);
                     numberSamples++;
-                } catch (Exception e) {
-                    Log.debug("NetworkFunctional#testingNetworkThreeRoot(ArrayList<Double> data, ModelNeuron[] neurons)",
-                            e.toString(), false);
+                }
+                catch (Exception e) {
+                    ViewWindows.setInfoToConsole(e.getLocalizedMessage());
                     break;
                 }
                 returnSignal = TrainingTestingFunction.receiveSignal(neurons, x);
@@ -105,13 +99,14 @@ public class NetworkFunctional
             double av = Calculate.average(DataExchange.dataout);
             SCO = Calculate.sd(DataExchange.datain, av);
             System.out.println("СКО: " + SCO);
+            ViewWindows.setSco(SCO);
             err = Calculate.error(DataExchange.datain, DataExchange.dataout);
+            ViewWindows.setErr(err);
             System.out.println("Ошибка прогнозирования: " + err);
         }
         catch (RuntimeException e)
         {
-            Log.debug("NetworkFunctional#trainingNetworkThreeRoot(ArrayList<Double> data, ModelNeuron[] neurons)",
-                    e.toString(), e.getStackTrace());
+           ViewWindows.setInfoToConsole(e.getLocalizedMessage());
         }
     }
 

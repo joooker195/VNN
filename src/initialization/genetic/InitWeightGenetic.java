@@ -1,7 +1,7 @@
 package initialization.genetic;
 
 import initialization.IInitWeight;
-import initialization.annelign.Metric;
+import initialization.annealing.Metric;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
