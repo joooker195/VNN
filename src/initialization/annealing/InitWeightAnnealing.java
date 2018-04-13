@@ -1,7 +1,9 @@
 package initialization.annealing;
 
+import initialization.InitRandom;
 import math.Calculate;
 import initialization.IInitWeight;
+import org.apache.log4j.Logger;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -14,6 +16,7 @@ import java.util.Scanner;
  */
 public class InitWeightAnnealing implements IInitWeight
 {
+    private static final Logger LOG = Logger.getLogger(InitWeightAnnealing.class);
 
     private Random r = new Random();
     private Cities cities; //координаты городов
@@ -55,16 +58,16 @@ public class InitWeightAnnealing implements IInitWeight
         ArrayList<Double> rand = getRand();
         for(int i=0; i<count; i++)
         {
-            /*x.add(InitRandom.initGaussianRandomWeight());
-            y.add(InitRandom.initGaussianRandomWeight());*/
-            x.add(rand.get(r.nextInt(150)));
-            y.add(rand.get(r.nextInt(150)));
+            x.add(InitRandom.initGaussianRandomWeight());
+            y.add(InitRandom.initGaussianRandomWeight());
+           /* x.add(rand.get(r.nextInt(150)));
+            y.add(rand.get(r.nextInt(150)));*/
         }
         cities = new Cities(x, y);
         this.count = count;
         states = generateStateCandidate(); //вычисляем опитимальный путь
 
-        for (int i=0; i< states.size(); i++)
+        /*for (int i=0; i< states.size(); i++)
         {
             double data = states.get(i);
             if(states.get(i)>0) {
@@ -72,10 +75,19 @@ public class InitWeightAnnealing implements IInitWeight
             }
           //  double data = cities.getStateX((int)Math.floor(states.get(i)));
             states.set(i, data);
+        }*/
+        ArrayList<Double> datas = new ArrayList<Double>();
+        StringBuffer sb = new StringBuffer();
+        for(Double bw: states)
+        {
+            sb.append(cities.getStateX((int) Math.floor(bw))).append("\n");
+            double data = cities.getStateX((int)Math.floor(bw));
+            data = Calculate.normalize(data*10);
+            datas.add(data);
         }
+        LOG.debug(sb);
 
-
-        return states;
+        return datas;
 
     }
 
@@ -93,6 +105,7 @@ public class InitWeightAnnealing implements IInitWeight
         {
           //  states.add(r.nextDouble()*10+n);
             states.add((double)r.nextInt(15));
+            System.out.println(states.get(i));
         }
 
         energyCurrent = CalculateEnergy.calEner(states, cities);//вычисляем текущую энергию

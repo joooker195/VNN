@@ -10,7 +10,18 @@ import java.util.Scanner;
  */
 public class ViewConsole
 {
+    private static boolean isModeConcole=false;
    // private static Scanner in  = new Scanner(System.in);
+
+
+    public static boolean isModeConcole() {
+        return isModeConcole;
+    }
+
+    public static void setModeConcole(boolean modeConcole) {
+        isModeConcole = modeConcole;
+    }
+
     public static void setvisibleView() throws Exception {
         String end = "no";
         System.out.println("Welcome!");

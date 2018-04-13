@@ -4,6 +4,7 @@ import initialization.IInitWeight;
 import initialization.InitRandom;
 import initialization.annealing.InitWeightAnnealing;
 import initialization.genetic.InitWeightGenetic;
+import view.ViewConsole;
 import view.windows.ViewWindows;
 
 import java.io.IOException;
@@ -120,24 +121,41 @@ public class ModelNetwork
             IInitWeight init = new InitRandom();
 
 
-            switch (ViewWindows.getNumberOfInit())
+            if(ViewConsole.isModeConcole())
             {
-                case 1:
-                {
-                    ViewWindows.setInfoToConsole("Rand");
-                    init = new InitRandom();
-                    break;
+                switch (Integer.parseInt(ViewConsole.chooseInit())) {
+                    case 1: {
+                        ViewWindows.setInfoToConsole("Rand");
+                        init = new InitRandom();
+                        break;
+                    }
+                    case 2: {
+                        ViewWindows.setInfoToConsole("Annea");
+                        init = new InitWeightAnnealing(1, 1E-7);
+                        break;
+                    }
+                    case 3: {
+                        ViewWindows.setInfoToConsole("Gen");
+                        init = new InitWeightGenetic();
+                    }
                 }
-                case 2:
-                {
-                    ViewWindows.setInfoToConsole("Annea");
-                    init = new InitWeightAnnealing(1, 1E-7);
-                    break;
-                }
-                case 3:
-                {
-                    ViewWindows.setInfoToConsole("Gen");
-                    init = new InitWeightGenetic();
+            }
+            else {
+                switch (ViewWindows.getNumberOfInit()) {
+                    case 1: {
+                        ViewWindows.setInfoToConsole("Rand");
+                        init = new InitRandom();
+                        break;
+                    }
+                    case 2: {
+                        ViewWindows.setInfoToConsole("Annea");
+                        init = new InitWeightAnnealing(1, 1E-7);
+                        break;
+                    }
+                    case 3: {
+                        ViewWindows.setInfoToConsole("Gen");
+                        init = new InitWeightGenetic();
+                    }
                 }
             }
 

@@ -2,12 +2,15 @@ package initialization.genetic;
 
 import initialization.IInitWeight;
 import initialization.annealing.Metric;
+import org.apache.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class InitWeightGenetic implements IInitWeight
 {
+    private static final Logger LOG = Logger.getLogger(InitWeightGenetic.class);
 
     private final int GA_POPSIZE = 2000;
 
@@ -33,6 +36,12 @@ public class InitWeightGenetic implements IInitWeight
             }
             populationWeight.add(popWeight);
         }
+        StringBuffer sb = new StringBuffer();
+        for(Double bw: populationWeight.get(0))
+        {
+            sb.append(bw).append("\n");
+        }
+        LOG.debug(sb);
     }
     private void calcFitnessFunction()
     {
@@ -73,7 +82,7 @@ public class InitWeightGenetic implements IInitWeight
     private void mutate(ArrayList<Double> mutateW, int i)
     {
         int tsize = countWeight;
-        int ipos = Math.abs(r.nextInt(tsize));
+        int ipos = Math.abs(r.nextInt(tsize-1));
         mutateW.set(ipos, r.nextGaussian());
         populationWeight.set(i, mutateW);
     }
@@ -124,12 +133,19 @@ public class InitWeightGenetic implements IInitWeight
             sortByFitness();
             bestFitness = populationFitness.get(0);
             bestWeight = populationWeight.get(0);
+            System.out.println(bestFitness);
             if (bestFitness == 0)
             {
                 break;
             }
             selection();
         }
+        StringBuffer sb = new StringBuffer();
+        for(Double bw: bestWeight)
+        {
+            sb.append(bw).append("\n");
+        }
+        LOG.debug(sb);
         return bestWeight;
     }
 
